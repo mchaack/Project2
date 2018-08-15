@@ -1,8 +1,9 @@
-module.exports = function(sequelize, DataTypes) {
-    var Todo = sequelize.define("Todo", {
-      text: DataTypes.STRING,
-      complete: DataTypes.BOOLEAN
-    });
-    return Todo;
-  };
-  
+module.exports = function (sequelize, DataTypes) {
+	var TravelTable = sequelize.define("TravelTable", {
+		location_visited: DataTypes.STRING,
+		future_location: DataTypes.STRING,
+		month: DataTypes.STRING,
+		interest: DataTypes.STRING
+	});
+	return TravelTable;
+};
