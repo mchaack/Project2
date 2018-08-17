@@ -2,7 +2,7 @@ $(document).ready(function () {
 	let ftrLoc;
 	let str;
 	const att = world;
-	console.log(att)
+	console.log(att);
 
 	// This function grabs todos from the database and updates the view
 	function getCountries() {
@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 		$.get("/api/future_locations", function (data) {
 			ftrLoc = data;
-			for (j = 0; j < att.features.length; j++) {
+			for (let j = 0; j < att.features.length; j++) {
 				let country = {};
 				if (country[att.features[j].id]) {
 					country[att.features[j].id]++;
@@ -20,7 +20,7 @@ $(document).ready(function () {
 				}
 
 			}
-			for (i = 0; i < ftrLoc.length; i++) {
+			for (let i = 0; i < ftrLoc.length; i++) {
 				str = ftrLoc[i].future_location;
 				str.split(",");
 				console.log(str);
@@ -29,5 +29,5 @@ $(document).ready(function () {
 		});
 	}
 	getCountries();
-	ftrLoc
-})
+	ftrLoc;
+});
