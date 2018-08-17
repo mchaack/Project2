@@ -48,6 +48,8 @@ module.exports = function (app) {
 	app.post("/api/future_locations", function (req, res) {
 		console.log(req.body);
 		db.TravelTable.create({
+			username: req.body.username,
+			email: req.body.email,
 			location_visited: req.body.location_visited,
 			future_location: req.body.future_location,
 			month: req.body.month,

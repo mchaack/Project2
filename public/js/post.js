@@ -109,12 +109,14 @@ $(document).ready(function () {
 	}
 	function insertTodo(e) {
 		const aryCntry = []
-		for(i=0; i< countryArray.length; i++){
+		for (i = 0; i < countryArray.length; i++) {
 			aryCntry.push(countryArray[i].feature.id)
 		}
 		aryCntry.toString;
 		console.log(aryCntry.toString())
 		var ftrLoc = {
+			username: "person",
+			email: "email",
 			location_visited: 'none',
 			future_location: aryCntry.toString(),
 			month: "June",
@@ -164,7 +166,7 @@ $(document).ready(function () {
 		insertTodo(e);
 	})
 	// This function inserts a new todo into our database and then updates the view
-	
+
 });
     // Getting a reference to the input field where user adds a new todo
     // var userInput = $(".location-visited").val().trim();
