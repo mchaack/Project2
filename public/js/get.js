@@ -6,14 +6,25 @@ $(document).ready(function () {
 
 	// This function grabs todos from the database and updates the view
 	function getCountries() {
+		let results = [];
+
 		$.get("/api/future_locations", function (data) {
 			ftrLoc = data;
-			console.log("from the data" + ftrLoc);
+			for (let j = 0; j < att.features.length; j++) {
+				let country = {};
+				if (country[att.features[j].id]) {
+					country[att.features[j].id]++;
+				}
+				else {
+					country[att.features[j].id] = 0;
+				}
+
+			}
 			for (let i = 0; i < ftrLoc.length; i++) {
-				console.log(ftrLoc[i]);
 				str = ftrLoc[i].future_location;
 				str.split(",");
 				console.log(str);
+				
 			}
 		});
 	}

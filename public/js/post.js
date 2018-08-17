@@ -108,14 +108,16 @@ $(document).ready(function () {
 		arrayStyle();
 	}
 	function insertTodo(e) {
-		const aryCntry = [];
+		const aryCntry = []
 		for (let i = 0; i < countryArray.length; i++) {
-			aryCntry.push(countryArray[i].feature.id);
+			aryCntry.push(countryArray[i].feature.id)
 		}
 		aryCntry.toString;
-		console.log(aryCntry.toString());
-		let ftrLoc = {
-			location_visited: "none",
+		console.log(aryCntry.toString())
+		const ftrLoc = {
+			username: "person",
+			email: "email",
+			location_visited: 'none',
 			future_location: aryCntry.toString(),
 			month: "June",
 			interest: "hiking"
