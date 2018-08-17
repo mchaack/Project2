@@ -1,165 +1,165 @@
 $(document).ready(function () {
-    var att = world;
-    console.log(att)
+	var att = world;
+	console.log(att)
 
-    var map = L.map('map').setView([37.8, -96], 4);
+	var map = L.map('map').setView([37.8, -96], 4);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.light'
-    }).addTo(map);
-
-
-    // control that shows state info on hover
-    var info = L.control();
-
-    info.onAdd = function (map) {
-        this._div = L.DomUtil.create('div', 'info');
-        this.update();
-        return this._div;
-    };
-
-    info.update = function (props) {
-        this._div.innerHTML = '<h4>People interested in visiting this country</h4>' + (props ?
-            '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-            : 'Hover over a country');
-    };
-
-    info.addTo(map);
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.light'
+	}).addTo(map);
 
 
-    // get color depending on population density value
-    function getColor(d) {
-        return d == 'Brazil' ? '#801026' :
-            d == 'Costa Rica' ? '#BD0026' :
-                d > 200 ? '#E31A1C' :
-                    d == 'Colombia' ? '#FC4E2A' :
-                        d > 50 ? '#FD8D3C' :
-                            d > 20 ? '#FEB24C' :
-                                d == 'Mexico' ? '#FED976' :
-                                    '#FFEDA0';
-    }
+	// control that shows state info on hover
+	var info = L.control();
 
-    function style(feature) {
-        return {
-            weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3',
-            fillOpacity: 0.7,
-            fillColor: getColor(feature.properties.name)
-        };
-    }
-    L.geoJson(world, { style: style }).addTo(map);
-    var geojson;
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
 
-    function highlightFeature(e) {
-        var layer = e.target;
+	info.update = function (props) {
+		this._div.innerHTML = '<h4>People interested in visiting this country</h4>' + (props ?
+			'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+			: 'Hover over a country');
+	};
 
-        layer.setStyle({
-            weight: 5,
-            color: '#677',
-            dashArray: '',
-            fillOpacity: 0.7
-        });
-
-        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-            layer.bringToFront();
-        }
-
-        info.update(layer.feature.properties);
-    }
-
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-    var countryArray = [];
-
-    function arrayStyle() {
-        for (i = 0; i < countryArray.length; i++) {
-            countryArray[i].setStyle({ fillColor: 'blue' });
-            console.log("clicked: " + countryArray[i])
-        }
-    }
+	info.addTo(map);
 
 
+	// get color depending on population density value
+	function getColor(d) {
+		return d == 'Brazil' ? '#801026' :
+			d == 'Costa Rica' ? '#BD0026' :
+				d > 200 ? '#E31A1C' :
+					d == 'Colombia' ? '#FC4E2A' :
+						d > 50 ? '#FD8D3C' :
+							d > 20 ? '#FEB24C' :
+								d == 'Mexico' ? '#FED976' :
+									'#FFEDA0';
+	}
 
-    function zoomToFeature(e) {
-        map.fitBounds(e.target.getBounds());
-        console.log(e.target.feature.properties.name)
-        let countryBoolean = false;
-        for (i = 0; i < countryArray.length; i++) {
-            if (countryArray[i] == e.target) {
-                countryBoolean = true;
-                console.log(e.target.feature.properties.name + " already included in list")
-                countryArray.splice((countryArray[i], countryArray), 1);
-                console.log("country removed, new list" + countryArray)
-            }
-        };
-        if (countryBoolean == false) {
-            countryArray.push(e.target)
-        }
-        console.log(countryArray)
-        arrayStyle();
-    }
-    function onEachFeature(feature, layer) {
-        layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: zoomToFeature
-        });
-    }
+	function style(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.name)
+		};
+	}
+	L.geoJson(world, { style: style }).addTo(map);
+	var geojson;
 
-    geojson = L.geoJson(world, {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(map);
+	function highlightFeature(e) {
+		var layer = e.target;
 
-    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+		layer.setStyle({
+			weight: 5,
+			color: '#677',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+		info.update(layer.feature.properties);
+	}
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	var countryArray = [];
+
+	function arrayStyle() {
+		for (i = 0; i < countryArray.length; i++) {
+			countryArray[i].setStyle({ fillColor: 'blue' });
+			console.log("clicked: " + countryArray[i])
+		}
+	}
 
 
-    var legend = L.control({ position: 'bottomright' });
 
-    legend.onAdd = function (map) {
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+		console.log(e.target.feature.properties.name)
+		let countryBoolean = false;
+		for (i = 0; i < countryArray.length; i++) {
+			if (countryArray[i] == e.target) {
+				countryBoolean = true;
+				console.log(e.target.feature.properties.name + " already included in list")
+				countryArray.splice((countryArray[i], countryArray), 1);
+				console.log("country removed, new list" + countryArray)
+			}
+		};
+		if (countryBoolean == false) {
+			countryArray.push(e.target)
+		}
+		console.log(countryArray)
+		arrayStyle();
+	}
+	function insertTodo(e) {
+		console.log(countryArray[0].feature.id)
+		var ftrLoc = {
+			location_visited: countryArray[0].feature.id,
+			future_location: countryArray[0].feature.id,
+			month: "June",
+			interest: "hiking"
+		};
 
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-            labels = [],
-            from, to;
+		$.post("/api/future_locations", ftrLoc);
+	}
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
 
-        for (var i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
+	geojson = L.geoJson(world, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(map);
 
-            labels.push(
-                '<i style="background:' + getColor(from + 1) + '"></i> ' +
-                from + (to ? '&ndash;' + to : '+'));
-        }
 
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
+	var legend = L.control({ position: 'bottomright' });
 
-    legend.addTo(map);
+	legend.onAdd = function (map) {
 
-    // This function inserts a new todo into our database and then updates the view
-    function insertTodo(e) {
-        event.preventDefault();
-        var ftrLoc = {
-            location_visited: e.target.feature.properties.name,
-            future_location: e.target.feature.properties.name,
-            month:"June",
-            interest: "hiking"
-        };
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+			labels = [],
+			from, to;
 
-        $.post("/api/todos", todo, getTodos);
-        $newItemInput.val("");
-    }
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+	legend.addTo(map);
+	$('.submit').on('click', function (e) {
+		insertTodo(e);
+	})
+	// This function inserts a new todo into our database and then updates the view
+	
 });
     // Getting a reference to the input field where user adds a new todo
     // var userInput = $(".location-visited").val().trim();
