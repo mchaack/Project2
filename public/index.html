@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js"></script>
   <link rel="stylesheet" href="bootstrap">
-  <link rel="stylesheet" href="../assests/css/style.css">
+  <link rel="stylesheet" href="../assests/scss/input.css">
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 
   <style>
@@ -17,31 +17,41 @@
 </head>
 
 <body>
-  <header>
-    <ul>
-      <li>
-        Map
-      </li>
-      <li>
-        Profile
-      </li>
-      <li>
-        Chat
-      </li>
-      <li>
-        Login
-      </li>
-    </ul>
+  <div id="bg"></div>
+  <header class="banner" role="banner">
+    <div class="container">
+    <h1 class="site-brand">
+      <a href="index.html">
+        TravelBuddy
+      </a>
+    </h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Map</li>
+        <li>
+          <a href="">Profile</a>
+        </li>
+        <li>
+          <a href="">Chat</a>
+        </li>
+        <li>
+          <a href="">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   </header>
 
-  <div id="map"></div>
-  <div id="sidecol"></div>
-  <div id="messagebox">
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" />
-      <button>Send</button>
-    </form>
+  <div id="map">
+    <div id="sidecol"></div>
+    <div id="messagebox">
+      <ul id="messages"></ul>
+      <form action="">
+        <input id="m" autocomplete="off" />
+        <button>Send</button>
+      </form>
+    </div>
   </div>
   <script src="./js/countries.geo.js"></script>
   <script type="application/javascript" src="./js/test.js"></script>
