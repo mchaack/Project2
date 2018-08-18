@@ -6,7 +6,7 @@
 // =============================================================
 
 // Requiring our Todo model
-var db = require("../models");
+const db = require("../models");
 
 // Routes
 // =============================================================
@@ -44,18 +44,21 @@ module.exports = function (app) {
 	// 		});
 	// });
 
-	// // POST route for saving a new post
-	// app.post("/api/posts", function (req, res) {
-	// 	console.log(req.body);
-	// 	db.Post.create({
-	// 		title: req.body.title,
-	// 		body: req.body.body,
-	// 		category: req.body.category
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
+	// POST route for saving a new post
+	app.post("/api/future_locations", function (req, res) {
+		console.log(req.body);
+		db.TravelTable.create({
+			username: req.body.username,
+			email: req.body.email,
+			location_visited: req.body.location_visited,
+			future_location: req.body.future_location,
+			month: req.body.month,
+			interest: req.body.interest
+
+		}).then(function (dbPost) {
+			res.json(dbPost);
+		});
+	});
 
 	// // DELETE route for deleting posts
 	// app.delete("/api/posts/:id", function (req, res) {
