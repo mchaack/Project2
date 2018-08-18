@@ -11,7 +11,8 @@ passport.use(
 	}, (accessToken, refreshToken, profile, done) => {
 		//passport callback function
 		console.log("passport callback function fired");
-		console.log(profile);
-		
+		console.log("profile.id", profile.id);
+		console.log("profile.emails[0].value", profile.emails[0].value);
+
 	})
 );
