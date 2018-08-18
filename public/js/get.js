@@ -107,7 +107,7 @@ $(document).ready(function () {
 					let str = ftrLoc[i].future_location;
 					if (str.includes(countrySelect.id)) {
 						console.log(ftrLoc[i])
-						let userBlock = $("<div>");
+						let userBlock = $("<button>");
 						userBlock.addClass("people");
 						userBlock.html("<div class='user'>" + ftrLoc[i].id + "</div>");
 
