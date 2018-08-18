@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const port = process.env.PORT || 8080;
+let port = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const db = require("./models"); 
