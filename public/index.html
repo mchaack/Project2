@@ -2,100 +2,47 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
-  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js"></script>
-  <link rel="stylesheet" href="bootstrap">
-  <link rel="stylesheet" href="../assests/scss/input.css">
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-  <div id="bg"></div>
-  <header class="banner" role="banner">
-    <div class="container">
-      <nav>
-        <ul>
-          <h1 class="site-brand">
-            <a href="index.html">
-              TravelBuddy
-            </a>
-          </h1>
-          <li class="navButton" id="home">
-            <a href="index.html">Map</a>
-          </li>
-          <li>
-            <a href="">Profile</a>
-          </li>
-          <li class="navButton" id="chat">
-            <a href="">Chat</a>
-          </li>
-          <li class="navButton" id="login">
-            <a href="">Login</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <div id="map">
-    <div id="sidecol"></div>
-    <div id="messagebox">
-      <ul id="messages"></ul>
-      <form action="">
-        <input id="m" autocomplete="off" />
-        <button>Send</button>
-      </form>
-    </div>
-  </div>
-  <script src="js/countries.geo.js"></script>
-  <script type="application/javascript" src="js/post.js"></script>
+    <h2>Create Login Form</h2>
 
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-  <!-- <h2>Modal Login Form</h2>
+    <div id="id01" class="modal">
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        <form class="modal-content animate">
+            <div class="imgcontainer">
+            </div>
 
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+            <div class="container">
+                <label for="uname">
+                    <b>Username</b>
+                </label>
+                <input id="user-name" type="text" placeholder="Enter Username" name="uname" required>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+                <label for="eml">
+                    <b>Email</b>
+                </label>
+                <input id="email" type="email" placeholder="Enter email" name="eml" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+                <button class="submit" type="submit">Create</button>
 
+            </div>
+            <!-- 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
+    </div> -->
+        </form>
     </div>
-  </form>
-</div> -->
 
-  <script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
+    <script src="./js/index.js"></script>
 
 </body>
 
