@@ -35,6 +35,6 @@ require("./routes/html-routes.js")(app);
 // =============================================================
 db.sequelize.sync({}).then(function() {
 	app.listen(port, function() {
-		console.log("Server listening on: http://localhost:" + PORT);
+		console.log("Server listening on: http://localhost:" + port);
 	});
 });
