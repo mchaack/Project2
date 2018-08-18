@@ -1,12 +1,30 @@
+nav {
+  /* Change the link color to #111 (black) on hover */
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
-nav li {
-  display: inline;
-  width: 60px;
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  float: right;
+}
+
+nav li a:hover {
+  background-color: gray;
+}
+
+nav .site-brand {
+  float: left;
 }
 
 /*login popup*/
@@ -158,11 +176,41 @@ span.psw {
   position: center;
   width: 75%;
   height: 50%;
-  float: 'clear-fix';
+  padding: 50px;
+  margin: center;
 }
 
 body, html {
   height: 100%;
+}
+
+#container nav nav {
+  /* Change the link color to #111 (black) on hover */
+}
+
+#container nav nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#container nav nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  float: right;
+}
+
+#container nav nav li a:hover {
+  background-color: gray;
+}
+
+#container nav nav .site-brand {
+  float: left;
 }
 
 body {
@@ -184,33 +232,32 @@ body h1 a {
   color: #fff;
   text-decoration: none;
   padding: 15px;
-  display: block;
+  display: inline;
   -webkit-text-decoration: uppercase;
           text-decoration: uppercase;
 }
 
-#container nav nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#container nav nav li {
-  display: inline;
-  width: 60px;
+body h1 {
+  position: left absolute;
+  width: 25%;
 }
 
 #map #map {
   position: center;
   width: 75%;
   height: 50%;
-  float: 'clear-fix';
+  padding: 50px;
+  margin: center;
 }
 
 header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #11111100;
   padding: 20px 10px;
+}
+
+header .banner {
+  vertical-align: center;
 }
 
 #chatbox {

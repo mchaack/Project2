@@ -8,6 +8,15 @@ $bgcolor:(
    accent: #FFF6BB
 );
 
+$button:(
+    background-color:#119,
+    color: white,
+    padding: 14px 20px,
+    margin: 8px 0,
+    border: none,
+    cursor: pointer,
+    width: 100%,
+);
 $padding: 15px ;
 
 @function color($color-name){
@@ -21,7 +30,12 @@ $borderline: 2px solid #ccc ;
 
 body, html{
     height: 100%;
-
+    
+}
+#container{
+    nav{
+    @import "navbar";
+    } 
 }
 body{
     font-family: 'Montserrat';
@@ -38,18 +52,16 @@ body{
         color: #fff;
         text-decoration: none;
         padding: $padding;
-        display: block;
-        text-decoration: uppercase ;
+        display: inline;
+        text-decoration: uppercase;   
+    }
+    h1{
+       position: left absolute;
+       width: 25%; 
     }
 
 }
 
-#container{
-    nav{
-        @import "navbar";
-    }
-
-}
 #map{
     @import 'map';
 }
@@ -58,9 +70,14 @@ body{
 //   background-color: 'bgcolor';
 // }
 header{
+        // height: 50px;
         overflow: hidden;
-        background-color: #f1f1f1;
-        padding: 20px 10px;      
+        background-color: #11111100;
+        padding: 20px 10px;   
+
+        .banner{
+        vertical-align: center;
+        }
 }
 #chatbox{
     background-color: '';
