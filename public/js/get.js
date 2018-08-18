@@ -96,7 +96,7 @@ $(document).ready(function () {
 					if (key == att[j].id) {
 						let cntplace = { key: key, value: value };
 						// let countryColor = value;
-						console.log(cntplace);
+						// console.log(cntplace);
 						// return {
 						// 	weight: 2,
 						// 	opacity: 1,
@@ -108,8 +108,8 @@ $(document).ready(function () {
 					}
 				}
 				console.log("key:" + key + " value: " + value);
-				console.log(myMap);
-				L.geoJson(world, { style: style }).addTo(map);
+				// console.log(myMap);
+				// L.geoJson(world, { style: style }).addTo(map);
 			});
 		});
 
