@@ -2,17 +2,16 @@
 
 const fs = require("fs");
 const path = require("path");
-const io = require("socket.io")(http);
 const Sequelize = require("sequelize");
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-if (config.use_env_constiable) {
-	let sequelize = new Sequelize(process.env[config.use_env_constiable]);
+if (config.use_env_variable) {
+	var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-	let sequelize = new Sequelize(config.database, config.username, config.password, config);
+	var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
 fs
@@ -35,17 +34,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-
-//chat box js
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
