@@ -1,4 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
+<<<<<<< HEAD
 	var TravelTable = sequelize.define("TravelTable", {
 <<<<<<< HEAD
 		text: DataTypes.STRING,
@@ -6,6 +7,11 @@ module.exports = function (sequelize, DataTypes) {
 	});
 	return TravelTable,
 =======
+=======
+	const TravelTable = sequelize.define("TravelTable", {
+		username: DataTypes.STRING,
+		email: DataTypes.STRING,
+>>>>>>> 758a243740884163e305020f7816bc28c25e84dc
 		location_visited: DataTypes.STRING,
 		future_location: DataTypes.STRING,
 		month: DataTypes.STRING,

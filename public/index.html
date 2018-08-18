@@ -2,25 +2,48 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
-  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-
-  <style>
-    #map {
-      height: 500px;
-      border: 1px solid black;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="map"></div>
-  <div id="sidecol"></div>
 
-  <script src="./js/countries.geo.js"></script>
-  <script type="application/javascript" src="./js/test.js"></script>
+    <h2>Create Login Form</h2>
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate">
+            <div class="imgcontainer">
+            </div>
+
+            <div class="container">
+                <label for="uname">
+                    <b>Username</b>
+                </label>
+                <input id="user-name" type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="eml">
+                    <b>Email</b>
+                </label>
+                <input id="email" type="email" placeholder="Enter email" name="eml" required>
+
+                <button class="submit" type="submit">Create</button>
+
+            </div>
+            <!-- 
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div> -->
+        </form>
+    </div>
+
+    <script src="./js/index.js"></script>
+
 </body>
 
 </html>
