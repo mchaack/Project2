@@ -7,6 +7,8 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const authRoutes = require("./routes/auth-routes.js");
+const passportSetup = require("./config/passport-setup");
 
 // Sets up the Express App
 // =============================================================
@@ -28,6 +30,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
+app.use("/auth", authRoutes);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
