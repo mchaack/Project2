@@ -107,24 +107,6 @@ $(document).ready(function () {
 		console.log(countryArray);
 		arrayStyle();
 	}
-	function insertTodo(e) {
-		const aryCntry = []
-		for (let i = 0; i < countryArray.length; i++) {
-			aryCntry.push(countryArray[i].feature.id)
-		}
-		aryCntry.toString;
-		console.log(aryCntry.toString())
-		const ftrLoc = {
-			username: "person",
-			email: "email",
-			location_visited: 'none',
-			future_location: aryCntry.toString(),
-			month: "June",
-			interest: "hiking"
-		};
-
-		$.post("/api/future_locations", ftrLoc);
-	}
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature,
@@ -162,6 +144,25 @@ $(document).ready(function () {
 	};
 
 	legend.addTo(map);
+	function insertTodo(e) {
+		const aryCntry = []
+		for (let i = 0; i < countryArray.length; i++) {
+			aryCntry.push(countryArray[i].feature.id)
+		}
+		aryCntry.toString;
+		console.log(aryCntry.toString())
+		const ftrLoc = {
+			username: "person",
+			email: "email",
+			location_visited: 'none',
+			future_location: aryCntry.toString(),
+			month: "June",
+			interest: "hiking"
+		};
+
+		$.post("/api/future_locations", ftrLoc);
+	}
+
 	$(".submit").on("click", function (e) {
 		insertTodo(e);
 	});
