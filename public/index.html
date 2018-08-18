@@ -23,16 +23,16 @@
             </a>
           </h1>
           <li class="navButton" id="home">
-            <a href="index.html">Map</a>
+            <button href="index.html">Map</button>
           </li>
           <li>
-            <a href="">Profile</a>
+            <button href="">Profile</button>
           </li>
           <li class="navButton" id="chat">
-            <a href="">Chat</a>
+            <button href="">Chat</button>
           </li>
           <li class="navButton" id="login">
-            <a href="">Login</a>
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
           </li>
         </ul>
       </nav>
@@ -52,38 +52,39 @@
   <script src="js/countries.geo.js"></script>
   <script type="application/javascript" src="js/post.js"></script>
 
+  <div id="id01" class="modal">
 
-  <!-- <h2>Modal Login Form</h2>
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+      <div class="container">
+        <label for="uname">
+          <b>Username</b>
+        </label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
 
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+        <label for="psw">
+          <b>Password</b>
+        </label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div> -->
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot
+          <a href="#">password?</a>
+        </span>
+      </div>
+    </form>
+  </div>
 
   <script>
     // Get the modal

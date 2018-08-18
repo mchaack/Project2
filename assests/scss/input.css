@@ -10,7 +10,16 @@ nav ul {
   background-color: #333;
 }
 
-nav li a {
+nav button {
+  background-color: #333;
+  color: white;
+  padding: 14px 14px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+nav li button {
   display: block;
   color: white;
   text-align: center;
@@ -19,7 +28,7 @@ nav li a {
   float: right;
 }
 
-nav li a:hover {
+nav li button:hover {
   background-color: gray;
 }
 
@@ -27,7 +36,6 @@ nav .site-brand {
   float: left;
 }
 
-/*login popup*/
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -44,20 +52,9 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
+/* button:hover {
+    opacity: 0.8;
+} */
 /* Extra styles for the cancel button */
 .cancelbtn {
   width: auto;
@@ -92,7 +89,7 @@ span.psw {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 2;
   /* Sit on top */
   left: 0;
   top: 0;
@@ -174,10 +171,9 @@ span.psw {
 
 #map {
   position: center;
-  width: 75%;
-  height: 50%;
-  padding: 50px;
-  margin: center;
+  width: 100%;
+  height: 60%;
+  z-index: 0;
 }
 
 body, html {
@@ -196,7 +192,16 @@ body, html {
   background-color: #333;
 }
 
-#container nav nav li a {
+#container nav nav button {
+  background-color: #333;
+  color: white;
+  padding: 14px 14px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+#container nav nav li button {
   display: block;
   color: white;
   text-align: center;
@@ -205,7 +210,7 @@ body, html {
   float: right;
 }
 
-#container nav nav li a:hover {
+#container nav nav li button:hover {
   background-color: gray;
 }
 
@@ -244,10 +249,9 @@ body h1 {
 
 #map #map {
   position: center;
-  width: 75%;
-  height: 50%;
-  padding: 50px;
-  margin: center;
+  width: 100%;
+  height: 60%;
+  z-index: 0;
 }
 
 header {
