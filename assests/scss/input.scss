@@ -1,3 +1,8 @@
+@import 'navbar';
+@import 'login';
+@import 'userDropdown';
+@import 'map';
+
 $bgcolor:( 
    primary: #b3c2d8,
    accent: #FFF6BB
@@ -9,7 +14,7 @@ $padding: 15px ;
     @return map-get($bgcolor, $color-name)
 }
 
-$bodytext: 'Ariel';
+$bodytext: 'Arial, Helvetica, sans-serif';
 $borderline: 2px solid #ccc ;
 
 
@@ -36,12 +41,22 @@ body{
         display: block;
         text-decoration: uppercase ;
     }
+
 }
 
-#map, header{
-  border: 'borderline';
-  background-color: 'bgcolor';
+#container{
+    nav{
+        @import "navbar";
+    }
+
 }
+#map{
+    @import 'map';
+}
+// #map, header{
+//   border: 'borderline';
+//   background-color: 'bgcolor';
+// }
 header{
         overflow: hidden;
         background-color: #f1f1f1;
