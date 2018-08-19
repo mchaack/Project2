@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth-routes.js");
 const passportSetup = require("./config/passport-setup");
 
+
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -36,7 +37,7 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({}).then(function() {
+db.sequelize.sync({force:true}).then(function() {
 	app.listen(port, function() {
 		console.log("Server listening on: http://localhost:" + port);
 	});
