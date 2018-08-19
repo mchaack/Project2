@@ -50,10 +50,9 @@ module.exports = function (app) {
 		db.TravelTable.create({
 			username: req.body.username,
 			email: req.body.email,
-			location_visited: req.body.location_visited,
+			image: req.body.image,
 			future_location: req.body.future_location,
-			month: req.body.month,
-			interest: req.body.interest
+		
 
 		}).then(function (dbPost) {
 			res.json(dbPost);
