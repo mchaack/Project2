@@ -51,9 +51,7 @@ module.exports = function (app) {
 			username: req.body.username,
 			email: req.body.email,
 			image: req.body.image,
-			future_location: req.body.future_location,
-		
-
+			future_location: req.body.future_location
 		}).then(function (dbPost) {
 			res.json(dbPost);
 		});
