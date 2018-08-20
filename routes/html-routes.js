@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 const path = require("path");
+const app = require("express");
 
 // Routes
 // =============================================================
@@ -25,5 +26,30 @@ module.exports = function(app) {
 	app.get("/public_map", function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/public_map.html"));
 	});
+	
+	// Re-direct routes for user login (non-passport)
 
+	app.get("/", function (req, res) {
+	res.redirect("/login");
+	});
+
+	app.get("/login", function (req, res) {
+	res.render("index");
+	});
+
+	app.post("/", function (res, req) {
+		var username = req.body.username;
+		var password = req.body.password;
+		authenticate(req, username, password);
+		if (req.session && req.session.authenticated) {
+			res.render("Welcome", { users: data2.users });
+		} else {
+			res.redirect("/");
+		}
+	})
+
+	app.listen(8080, function () {
+		console.log("Started Express Application!")
+	});
 };
+	
