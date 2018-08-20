@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
 		username: DataTypes.STRING,
 		email: DataTypes.STRING,
 		image: DataTypes.STRING,
-		future_location: DataTypes.STRING
+		future_location: DataTypes.STRING,
+	
 	});
 	return TravelTable;
 };

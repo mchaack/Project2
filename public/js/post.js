@@ -154,8 +154,8 @@ $(document).ready(function () {
 		const ftrLoc = {
 			username: "person",
 			email: "email",
-			image: "none",
-			future_location: aryCntry.toString(),
+			image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwLEHkvfUKKfrb55gqca9UJkaGP3Ht2mV5G662yePqes_xm3Z",
+			future_location: aryCntry.toString()
 		};
 
 		$.post("/api/future_locations", ftrLoc);
