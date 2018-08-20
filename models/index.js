@@ -8,16 +8,6 @@ const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-// Additional dependancies for user login not utilizing Passport
-const express = require("express");
-const parseurl = require("parseurl");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const data = require("./data.js");
-const data2 = require("./userData.js");
-const mustacheExpress = require("mustache-express");
-const app = require("express");
-
 
 if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env[config.use_env_variable]);
