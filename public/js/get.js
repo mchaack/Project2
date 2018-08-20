@@ -80,7 +80,7 @@ $(document).ready(function () {
 				// jsonString = JSON.stringify(styleArray)
 				// console.log(newAtt)
 			});
-			
+
 			// console.log(jsonString)
 			// console.log(styleArray);
 			// console.log(val)
@@ -89,7 +89,7 @@ $(document).ready(function () {
 		// 	if (value > 5) {
 
 		// 	}
-	
+
 		// m.forEach(function(p){
 		// 	p.name= m.name;
 		// });
@@ -130,8 +130,6 @@ $(document).ready(function () {
 		// }
 		L.geoJson(att, { style: newStyle }).addTo(map);
 
-
-
 		function getCountries(e) {
 			$("#sidecol").empty();
 			countrySelect = e.target.feature;
@@ -144,9 +142,10 @@ $(document).ready(function () {
 					results.push(ftrLoc[i]);
 					let userBlock = $("<button>");
 					userBlock.addClass("people");
-					userBlock.html("<div class='user'>" + ftrLoc[i].id + "</div><div class='name'>" + ftrLoc[i].username + "</div>");
-
+					userBlock.html("<div class='user'>" + ftrLoc[i].id + "</div><img src='" + ftrLoc[i].image + "'><div class='name'>" + ftrLoc[i].username + "</div>");
+					// popup.setContent(userBlock)
 					$("#sidecol").append(userBlock);
+				
 				}
 			}
 		}
@@ -154,73 +153,14 @@ $(document).ready(function () {
 
 		function onEachFeature(feature, layer) {
 			layer.on({
-				// mouseover: highlightFeature,
-				// mouseout: resetHighlight,
+
 				click: getCountries
 			});
 		}
-
 		geojson = L.geoJson(att, {
 			// style: newStyle,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-
-
-		// function highlightFeature(e) {
-		// 	let layer = e.target;
-
-		// 	layer.setStyle({
-		// 		weight: 5,
-		// 		color: "#677",
-		// 		dashArray: "",
-		// 		fillOpacity: 0.7
-		// 	});
-
-		// 	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-		// 		layer.bringToFront();
-		// 	}
-
-		// 	info.update(layer.feature.properties);
-		// }
-
-		// function resetHighlight(e) {
-		// 	geojson.resetStyle(e.target);
-		// 	info.update();
-		// }
-
-		// let countryArray = [];
-
-		// function arrayStyle() {
-		// 	for (let i = 0; i < countryArray.length; i++) {
-		// 		countryArray[i].setStyle({ fillColor: "blue" });
-		// 		console.log("clicked: " + countryArray[i]);
-		// 	}
-		// }
-
-
-		// let legend = L.control({ position: "bottomright" });
-
-		// legend.onAdd = function (map) {
-
-		// 	let div = L.DomUtil.create("div", "info legend"),
-		// 		grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-		// 		labels = [],
-		// 		from, to;
-
-		// 	for (let i = 0; i < grades.length; i++) {
-		// 		from = grades[i];
-		// 		to = grades[i + 1];
-
-		// 		labels.push(
-		// 			"<i style=\"background:" + getColor(from + 1) + "\"></i> " +
-		// 			from + (to ? "&ndash;" + to : "+"));
-		// 	}
-
-		// 	div.innerHTML = labels.join("<br>");
-		// 	return div;
-		// };
-
-		// legend.addTo(map);
 	}
 
 });
