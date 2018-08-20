@@ -154,10 +154,8 @@ $(document).ready(function () {
 		const ftrLoc = {
 			username: "person",
 			email: "email",
-			location_visited: 'none',
-			future_location: aryCntry.toString(),
-			month: "June",
-			interest: "hiking"
+			image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwLEHkvfUKKfrb55gqca9UJkaGP3Ht2mV5G662yePqes_xm3Z",
+			future_location: aryCntry.toString()
 		};
 
 		$.post("/api/future_locations", ftrLoc);
