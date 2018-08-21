@@ -29,17 +29,17 @@ module.exports = function(app) {
 	
 	// Re-direct routes for user login (non-passport)
 
-	app.get("/", function (req, res) {
-	res.redirect("/login");
-	});
+	// app.get("/", function (req, res) {
+	// res.redirect("/login");
+	// });
 
-	app.get("/login", function (req, res) {
-	res.render("index");
-	});
+	// app.get("/login", function (req, res) {
+	// res.render("index");
+	// });
 
 	app.post("/", function (res, req) {
-		var username = req.body.username;
-		var password = req.body.password;
+		let username = req.body.username;
+		let password = req.body.password;
 		authenticate(req, username, password);
 		if (req.session && req.session.authenticated) {
 			res.render("Welcome", { users: data2.users });
