@@ -5,10 +5,10 @@
 // Dependencies
 // =============================================================
 
+
 // Requiring our Todo model
 const db = require("../models");
 
-// Routes
 // =============================================================
 module.exports = function (app) {
 	// GET route for getting all of the posts
@@ -20,68 +20,44 @@ module.exports = function (app) {
 			});
 	});
 
-	// // Get route for returning posts of a specific category
-	// app.get("/api/posts/category/:category", function (req, res) {
-	// 	db.Post.findAll({
-	// 		where: {
-	// 			category: req.params.category
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
-
-	// // Get route for retrieving a single post
-	// app.get("/api/posts/:id", function (req, res) {
-	// 	db.Post.findOne({
-	// 		where: {
-	// 			id: req.params.id
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
-
-	// POST route for saving a new post
 	app.post("/api/future_locations", function (req, res) {
 		console.log(req.body);
 		db.TravelTable.create({
 			username: req.body.username,
 			email: req.body.email,
-			location_visited: req.body.location_visited,
-			future_location: req.body.future_location,
-			month: req.body.month,
-			interest: req.body.interest
-
+			image: req.body.image,
+			future_location: req.body.future_location
 		}).then(function (dbPost) {
 			res.json(dbPost);
+			// res.redirect("/user_map?" + "username=" + dbPost.username);
 		});
 	});
-
-	// // DELETE route for deleting posts
-	// app.delete("/api/posts/:id", function (req, res) {
-	// 	db.Post.destroy({
-	// 		where: {
-	// 			id: req.params.id
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		})
-	// });
-
-	// // PUT route for updating posts
-	// app.put("/api/posts", function (req, res) {
-	// 	db.Post.update(req.body,
-	// 		{
+	// app.put("/api/future_locations", function (req, res) {
+	// 	console.log(req.body);
+	// 	db.TravelTable.update({
+	// 		image: req.body.image,
+	// 		future_location: req.body.future_location
+	// 	}, {
 	// 			where: {
-	// 				id: req.body.id
+	// 				id: req.body.username
 	// 			}
-	// 		})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
+	// 		}).then(function (dbTodo) {
+	// 			res.json(dbTodo);
 	// 		});
 	// });
+
+
+	// db.TravelTable.findOne({ username: req.body.username }).then(function(){
+	// 	db.TravelTable.update({
+
+	// 	})
+	// })({
+	// 	username: req.body.username,
+	// 	email: req.body.email,
+	// 	}).then(function (dbPost) {
+	// 		res.json(dbPost);
+	// 	});
+	// });
+
+
 };
