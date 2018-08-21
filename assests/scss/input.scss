@@ -8,21 +8,11 @@ $bgcolor:(
    accent: #FFF6BB
 );
 
-$button:(
-    background-color:#119,
-    color: white,
-    padding: 14px 20px,
-    margin: 8px 0,
-    border: none,
-    cursor: pointer,
-    width: 100%,
-);
-$padding: 15px ;
-
 @function color($color-name){
     @return map-get($bgcolor, $color-name)
 }
 
+$padding: 15px ;
 $bodytext: 'Arial, Helvetica, sans-serif';
 $borderline: 2px solid #ccc ;
 
@@ -37,8 +27,9 @@ body, html{
     @import "navbar";
     } 
 }
+
 body{
-    font-family: 'Montserrat';
+    font-family: $bodytext;
     margin: 0;
     #bg{
         clip-path: polygon(100% 0, 100% 54%, 50% 100%, 0 100%, 0 0);
@@ -60,16 +51,16 @@ body{
        width: 25%; 
     }
 
-}
 
-#map{
-    @import 'map';
-}
+
+    #map{
+     @import 'map';
+    }
 // #map, header{
 //   border: 'borderline';
 //   background-color: 'bgcolor';
 // }
-header{
+    header{
         // height: 50px;
         overflow: hidden;
         background-color: #11111100;
@@ -78,8 +69,9 @@ header{
         .banner{
         vertical-align: center;
         }
-}
-#chatbox{
-    background-color: '';
-    text-align: left;
+    }
+    #chatbox{
+        background-color: '';
+        text-align: left;
+    }
 }
