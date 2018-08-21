@@ -223,10 +223,10 @@ body {
   margin: 0;
 }
 
-body #bg {
+body div #bg {
   -webkit-clip-path: polygon(100% 0, 100% 54%, 50% 100%, 0 100%, 0 0);
           clip-path: polygon(100% 0, 100% 54%, 50% 100%, 0 100%, 0 0);
-  background-color: #b3c2d8;
+  background: url("../../images/adult-book-business-297755.jpg");
   width: 100%;
   height: 100%;
   position: absolute;
@@ -247,24 +247,24 @@ body h1 {
   width: 25%;
 }
 
-body #map #map {
+#map #map {
   position: center;
   width: 100%;
   height: 60%;
   z-index: 0;
 }
 
-body header {
+header {
   overflow: hidden;
   background-color: #11111100;
   padding: 20px 10px;
 }
 
-body header .banner {
+header .banner {
   vertical-align: center;
 }
 
-body #chatbox {
+#chatbox {
   background-color: '';
   text-align: left;
 }

@@ -1,30 +1,23 @@
-let modal = document.getElementById("id01");
+$(document).ready(function () {
+	let userName;
+	let eMail;
+	$(".submit").on("click", function () {
+		event.preventDefault();
+		userName = $("#user-name").val().trim();
+		eMail = $("#email").val().trim();
+		console.log(userName);
+		insertUser();
+	})
+	function insertUser() {
+		const userAccnt = {
+			username: userName,
+			email: eMail
+		}
+		$.post("/api/future_locations", userAccnt).then(function (res) {
+			console.log(res)
+			window.location.replace("/user_map?" + "username=" + res.username);
+			// window.location.replace(data.redirect); than window.location.href = data.redirect;
+		});
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
 	}
-};
-function insertTodo(e) {
-	const aryCntry = []
-	for (let i = 0; i < countryArray.length; i++) {
-		aryCntry.push(countryArray[i].feature.id)
-	}
-	aryCntry.toString;
-	console.log(aryCntry.toString())
-	const ftrLoc = {
-		username: "person",
-		email: "email",
-	};
-
-	$.post("/api/future_locations", ftrLoc);
-}
-$(".submit").on("click", function () {
-	const usr = $("#user-name").val().trim();
-	const eml = $("#email").val().trim();
-
-	console.log("Username: " + usr);
-	console.log("Username: " + eml);
-	return;
-});
+})
