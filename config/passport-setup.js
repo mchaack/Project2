@@ -13,6 +13,7 @@ passport.use(
 		console.log("passport callback function fired");
 		console.log("profile.id", profile.id);
 		console.log("profile.emails[0].value", profile.emails[0].value);
-
+		console.log("profile.photos[0].value", profile.photos[0].value);
+		// console.log("profile", profile);
 	})
 );
