@@ -21,11 +21,6 @@ $(document).ready(function () {
 
 
 
-
-		// L.geoJson(world, { style: style }).addTo(map);
-
-
-
 		let countrySelect;
 		let testArray = [];
 		let styleArray = {
@@ -34,13 +29,13 @@ $(document).ready(function () {
 		let results = [];
 		let str;
 		let val;
-		let newAtt;
 		let myMap = new Map();
+		let newAtt;
 		$.get("/api/future_locations", function (data) {
 			ftrLoc = data;
-			console.log(ftrLoc)
+			console.log(ftrLoc);
 
-			function storedCountries() {
+			function storedCountries(e) {
 				for (i = 0; i < ftrLoc.length; i++) {
 					str = ftrLoc[i].future_location;
 					for (let j = 0; j < att.length; j++) {
@@ -73,94 +68,123 @@ $(document).ready(function () {
 						testArray.push(cntplace);
 						// console.log(att[j]);
 					}
-					newStyle(att[j]);
+					// newStyle(att[j]);
 				}
 				newAtt = att;
 				// console.log("key:" + key + " value: " + value);
 				// jsonString = JSON.stringify(styleArray)
-				// console.log(newAtt)
 			});
+			console.log(newAtt)
 
 			// console.log(jsonString)
 			// console.log(styleArray);
 			// console.log(val)
-		});
-		// function colorCode() {
-		// 	if (value > 5) {
+		}).then(function (res) {
+			console.log(res)
+			console.log(newAtt)
+			function newStyle(features) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: "white",
+					dashArray: "3",
+					fillOpacity: 0.7,
+					fillColor: getColor(features.properties.name)
+				};
+			}
 
-		// 	}
 
-		// m.forEach(function(p){
-		// 	p.name= m.name;
-		// });
-		// fs.writeFile('countries.geo.js', JSON.stringify(m));
+			L.geoJson(att, { style: newStyle }).addTo(map);
+			let info = L.control();
+			let countryInfo;
 
+			function highlightFeature(e) {
+				// let layer = e.target;
 
-		function getColor(d) {
-			return d > 20 ? "#801026" :
-				d > 16 ? "#BD0026" :
-					d > 13 ? "#E31A1C" :
-						d > 9 ? "#FC4E2A" :
-							d > 5 ? "#FD8D3C" :
-								d > 3 ? "#FEB24C" :
-									d >= 1 ? "#FED116" :
-										"#6aed6c";
-		}
-		function newStyle(features) {
-			// console.log()
-			return {
-				weight: 2,
-				opacity: 1,
-				color: "green",
-				dashArray: "3",
-				fillOpacity: 0.7,
-				fillColor: getColor(features.properties.name)
-			};
-		}
-		// }
-		// function style(myMap) {
-		// 	return {
-		// 		weight: 2,
-		// 		opacity: 1,
-		// 		color: "white",
-		// 		dashArray: "3",
-		// 		fillOpacity: 0.7,
-		// 		fillColor: getColor(myMap)
-		// 	};
-		// }
-		L.geoJson(att, { style: newStyle }).addTo(map);
+				// // layer.setStyle({
+				// // 	weight: 5,
+				// // 	color: "#677",
+				// // 	dashArray: "",
+				// // 	fillOpacity: 0.7
+				// // });
 
-		function getCountries(e) {
-			$("#sidecol").empty();
-			countrySelect = e.target.feature;
-			console.log(e.target.feature.id)
-			// console.log(data)
-			for (i = 0; i < ftrLoc.length; i++) {
-				str = ftrLoc[i].future_location;
-				if (str.includes(countrySelect.id)) {
-					console.log(countrySelect.id)
-					results.push(ftrLoc[i]);
-					let userBlock = $("<button>");
-					userBlock.addClass("people");
-					userBlock.html("<div class='user'>" + ftrLoc[i].id + "</div><img src='" + ftrLoc[i].image + "'><div class='name'>" + ftrLoc[i].username + "</div>");
-					// popup.setContent(userBlock)
-					$("#sidecol").append(userBlock);
-				
+				// if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				// 	layer.bringToFront();
+				// }
+
+				// info.update(layer);
+			}
+			// function information(e) {
+			// 	countryInfo = e;
+			// 	console.log(countryInfo)
+
+			// 	info.onAdd = function () {
+			// 		this._div = L.DomUtil.create("div", "info"); // create a div with a class "info"
+			// 		this.update();
+			// 		return this._div;
+			// 	};
+
+			// 	// method that we will use to update the control based on feature properties passed
+			// 	info.update = function (props) {
+			// 		console.log(props)
+			// 		this._div.innerHTML = "<h4>US Population Density</h4>" + (props ?
+			// 			"<b>" + props.feature.properties.name + "</b><br />" + props.density + " people / mi<sup>2</sup>"
+			// 			: "Hover over a state");
+			// 	};
+
+			// 	info.addTo(map);
+			// }
+			// function resetHighlight(e) {
+			// 	geojson.resetStyle(e.target);
+			// 	info.update();
+			// }
+			// information(ftrLoc)
+			function getCountries(e) {
+				$("#sidecol").empty();
+				countrySelect = e.target.feature;
+				console.log(e.target.feature.id);
+				// console.log(data)
+				for (i = 0; i < ftrLoc.length; i++) {
+					str = ftrLoc[i].future_location;
+					if (str.includes(countrySelect.id)) {
+						console.log(countrySelect.id);
+						results.push(ftrLoc[i]);
+						let userBlock = $("<button>");
+						userBlock.addClass("people");
+						userBlock.html("<div class='user'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
+						// popup.setContent(userBlock)
+						$("#sidecol").append(userBlock);
+
+					}
 				}
 			}
-		}
+
+			function getColor(d) {
+				return d > 12 ? "#801026" :
+					d > 9 ? "#BD0026" :
+						d > 7 ? "#E31A1C" :
+							d > 4 ? "#FC4E2A" :
+								d > 3 ? "#FD8D3C" :
+									d > 2 ? "#FEB24C" :
+										d > 1 ? "#FED976" :
+											"#FFEDA0";
+			}
 
 
-		function onEachFeature(feature, layer) {
-			layer.on({
+			function onEachFeature(feature, layer) {
+				layer.on({
+					mouseover: highlightFeature,
+					// mouseout: resetHighlight,
+					click: getCountries
+				});
+			}
+			geojson = L.geoJson(att, {
+				style: newStyle,
+				onEachFeature: onEachFeature
+			}).addTo(map);
 
-				click: getCountries
-			});
-		}
-		geojson = L.geoJson(att, {
-			// style: newStyle,
-			onEachFeature: onEachFeature
-		}).addTo(map);
+			
+		})
 	}
 
 });
