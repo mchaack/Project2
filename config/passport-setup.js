@@ -1,19 +1,53 @@
 require("dotenv").config();
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
+const db = require("../models");
+
+passport.serializeUser((user, done) => {
+	// console.log("********************* Serializing userId", user);
+	done(null, user.id);
+});
+
+
+passport.deserializeUser((id, done) => {
+	db.TravelTable.findById(id).then(user => {
+		// console.log("********************* deserializing user", user);
+		done(null, user);
+	});
+
+});
+
 
 passport.use(
 	new GoogleStrategy({
 		//options for the strategy
-		callbackURL:"/auth/google/redirect",
+		callbackURL: "/auth/google/redirect",
 		clientID: process.env.GOOGLE_CLIENT_ID,
 		clientSecret: process.env.GOOGLE_CLIENT_SECRET
 	}, (accessToken, refreshToken, profile, done) => {
 		//passport callback function
-		console.log("passport callback function fired");
-		console.log("profile.id", profile.id);
-		console.log("profile.emails[0].value", profile.emails[0].value);
-		console.log("profile.photos[0].value", profile.photos[0].value);
+		// const googleId = profile.id;
+		const username = profile.displayName;
+		const email = profile.emails[0].value;
+		const image = profile.photos[0].value.replace(/\?sz=50/g, "");
+		// console.log("id", googleId);
+		// console.log("username", username);
+		// console.log("email", email);
+		// console.log("image", image);
 		// console.log("profile", profile);
+		db.TravelTable.findOrCreate({
+			where: {
+				username: username,
+				email: email,
+				image: image
+			}
+		}).then(function (currentUser) {
+			const currentUsersDbId = currentUser[0].dataValues.id;
+			// console.log("currentUser", currentUser);
+			console.log("currentUsersDbId", currentUsersDbId);
+			// console.log(currentUser[0].TravelTable.dataValues.email);
+			done(null, currentUser[0].dataValues);
+		});
+
 	})
 );
