@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	let ftrLoc;
-	let str;
+	// let str;
 	const att = world.features;
 	console.log(att);
 
@@ -8,7 +8,7 @@ $(document).ready(function () {
 	mapDisplay();
 	function mapDisplay() {
 
-		let map = L.map("map").setView([37.8, -96], 4);
+		let map = L.map("map").setView([10, 0], 2);
 
 		L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianJuZWxzMTAiLCJhIjoiY2prenI0cGpyMHg5bDN3bGU3bnd2eWZlMCJ9.3APPzTqzXC9bF-V3Up6z3w", {
 			maxZoom: 18,
@@ -95,50 +95,11 @@ $(document).ready(function () {
 
 
 			L.geoJson(att, { style: newStyle }).addTo(map);
-			let info = L.control();
-			let countryInfo;
+			// let info = L.control();
+			// let countryInfo;
 
-			function highlightFeature(e) {
-				// let layer = e.target;
-
-				// // layer.setStyle({
-				// // 	weight: 5,
-				// // 	color: "#677",
-				// // 	dashArray: "",
-				// // 	fillOpacity: 0.7
-				// // });
-
-				// if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-				// 	layer.bringToFront();
-				// }
-
-				// info.update(layer);
-			}
-			// function information(e) {
-			// 	countryInfo = e;
-			// 	console.log(countryInfo)
-
-			// 	info.onAdd = function () {
-			// 		this._div = L.DomUtil.create("div", "info"); // create a div with a class "info"
-			// 		this.update();
-			// 		return this._div;
-			// 	};
-
-			// 	// method that we will use to update the control based on feature properties passed
-			// 	info.update = function (props) {
-			// 		console.log(props)
-			// 		this._div.innerHTML = "<h4>US Population Density</h4>" + (props ?
-			// 			"<b>" + props.feature.properties.name + "</b><br />" + props.density + " people / mi<sup>2</sup>"
-			// 			: "Hover over a state");
-			// 	};
-
-			// 	info.addTo(map);
-			// }
-			// function resetHighlight(e) {
-			// 	geojson.resetStyle(e.target);
-			// 	info.update();
-			// }
-			// information(ftrLoc)
+		
+		
 			function getCountries(e) {
 				$("#sidecol").empty();
 				countrySelect = e.target.feature;
@@ -173,7 +134,7 @@ $(document).ready(function () {
 
 			function onEachFeature(feature, layer) {
 				layer.on({
-					mouseover: highlightFeature,
+					// mouseover: highlightFeature,
 					// mouseout: resetHighlight,
 					click: getCountries
 				});
