@@ -4,7 +4,15 @@
 <head>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js"></script>
-
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 
   <style>
@@ -12,13 +20,120 @@
       height: 500px;
       border: 1px solid black;
     }
+
+    .container-fluid {
+      height: 100vh !important;
+    }
+
+    /* #profile-pic {
+      width: 100%;
+      height: 20px;
+      border: 1px solid black;
+    } */
   </style>
 </head>
 
 <body>
-  <div id="map"></div>
-  <div id="sidecol"></div>
-  <button class="submit">submit</button>
+  <div class="container-fluid">
+    <div class="row h-100">
+      <div class="col-8 login-title m-auto h-75">
+
+        <div class="row project-title w-100 text-center m-auto h-75">
+          <div class="w-100 title">Travel Buddies</div>
+        </div>
+        <div class="row login-div">
+          <button class=" w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto;">Login</button>
+          <div id="id02" class="modal">
+            <form class="modal-content animate">
+              <div class="imgcontainer">
+              </div>
+
+              <div class="container">
+                <div class="name-user">
+
+                  <label for="uname">
+                    <b>Username</b>
+                  </label>
+                  <input id="user-name" type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+                <div class="email-user">
+
+                  <label for="eml">
+                    <b>Email</b>
+                  </label>
+                  <input id="email" type="text" placeholder="Enter email" name="eml" required>
+                </div>
+                <!-- <div class="picture-user">
+
+                  <label>
+                    <b>Profile picture</b>
+                  </label>
+                  <input id="profile-pic" type="text" placeholder="Enter image address" name="prfle">
+                </div> -->
+                <br>
+                <button class="create-submit" type="submit">Login</button>
+                <div class="container" style="background-color:#f1f1f1">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <div class="row create-div">
+          <button class="w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto;">Create account</button>
+          <div id="id01" class="modal">
+            <form class="w-50 modal-content animate">
+              <div class="imgcontainer">
+              </div>
+
+              <div class="container">
+                <div class="name-user">
+
+                  <label for="uname">
+                    <b>Username</b>
+                  </label>
+                  <input id="user-name" type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+                <div class="email-user">
+
+                  <label for="eml">
+                    <b>Email</b>
+                  </label>
+                  <input id="email" type="text" placeholder="Enter email" name="eml" required>
+                </div>
+                <div class="picture-user">
+
+                  <label>
+                    <b>Profile picture</b>
+                  </label>
+                  <input id="profile-pic" type="text" placeholder="Enter image address" name="prfle">
+                </div>
+                <br>
+                <button class="create-submit" type="submit">Create</button>
+
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 map-title m-auto h-75">
+
+        <div class="mappin">
+
+          <div id="map"></div>
+          <div id="sidecol"></div>
+          <button class="submit">submit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
   <script src="./js/countries.geo.js"></script>
   <script type="application/javascript" src="./js/post.js"></script>
   <!-- <script type="application/javascript" src="./js/get.js"></script> -->
