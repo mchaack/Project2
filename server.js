@@ -16,7 +16,7 @@ const cookieSession = require("cookie-session");
 // Sets up the Express App
 // =============================================================
 const app = express();
-let port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const db = require("./models");

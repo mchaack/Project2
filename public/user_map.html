@@ -44,7 +44,7 @@
         <div class="row login-div">
           <button class=" w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">Login</button>
-          <!-- <div id="id01" class="modal">
+          <div id="id02" class="modal">
             <form class="modal-content animate">
               <div class="imgcontainer">
               </div>
@@ -64,21 +64,24 @@
                   </label>
                   <input id="email" type="text" placeholder="Enter email" name="eml" required>
                 </div>
-                <div class="picture-user">
+                <!-- <div class="picture-user">
 
                   <label>
                     <b>Profile picture</b>
                   </label>
                   <input id="profile-pic" type="text" placeholder="Enter image address" name="prfle">
-                </div>
+                </div> -->
                 <br>
-                <button class="create-submit" type="submit">Create</button>
-
-
+                <button class="create-submit" type="submit">Login</button>
+                <div class="container" style="background-color:#f1f1f1">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
               </div>
 
             </form>
-          </div> -->
+          </div>
+        </div>
+        <div class="row create-div">
           <button class="w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">Create account</button>
           <div id="id01" class="modal">

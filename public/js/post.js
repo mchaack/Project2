@@ -29,25 +29,12 @@ $(document).ready(function () {
 		};
 
 		info.update = function (props) {
-			this._div.innerHTML = "<h4>People interested in visiting this country</h4>" + (props ?
-				"<b>" + props.name + "</b><br />" + props.density + " people / mi<sup>2</sup>"
+			this._div.innerHTML = "<h4>Select countries that you would like to visit.</h4>" + (props ?
+				"<b>" + props.name + "</b><br />"
 				: "Hover over a country");
 		};
 
 		info.addTo(map);
-
-
-		// get color depending on population density value
-		function getColor(d) {
-			return d == "Brazil" ? "#801026" :
-				d == "Costa Rica" ? "#BD0026" :
-					d > 200 ? "#E31A1C" :
-						d == "Colombia" ? "#FC4E2A" :
-							d > 50 ? "#FD8D3C" :
-								d > 20 ? "#FEB24C" :
-									d == "Mexico" ? "#FED976" :
-										"#FFEDA0";
-		}
 
 		function style(feature) {
 			return {
@@ -56,7 +43,7 @@ $(document).ready(function () {
 				color: "white",
 				dashArray: "3",
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.name)
+				fillColor: "#FFEDA0"
 			};
 		}
 		L.geoJson(world, { style: style }).addTo(map);
@@ -78,8 +65,28 @@ $(document).ready(function () {
 
 			info.update(layer.feature.properties);
 		}
+		function highlightFeatureSeperate(e) {
+			let layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: "#677",
+				dashArray: "",
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+		}
 
 		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+		function resetHighlightSeperate(e) {
 			geojson.resetStyle(e.target);
 			info.update();
 		}
@@ -95,27 +102,29 @@ $(document).ready(function () {
 
 
 		function zoomToFeature(e) {
-			map.fitBounds(e.target.getBounds());
+			// map.fitBounds(e.target.getBounds());
 			console.log(e.target.feature.properties.name);
 			let countryBoolean = false;
 			for (let i = 0; i < countryArray.length; i++) {
+				console.log(countryArray[i].feature.properties.name)
 				if (countryArray[i] == e.target) {
 					countryBoolean = true;
 					console.log(e.target.feature.properties.name + " already included in list");
 					countryArray.splice((countryArray[i], countryArray), 1);
 					console.log("country removed, new list" + countryArray);
+					resetHighlight(e);
 				}
 			}
 			if (countryBoolean == false) {
 				countryArray.push(e.target);
+				arrayStyle();
 			}
 			console.log(countryArray);
-			arrayStyle();
 		}
 		function onEachFeature(feature, layer) {
 			layer.on({
-				mouseover: highlightFeature,
-				mouseout: resetHighlight,
+				mouseover: highlightFeatureSeperate,
+				mouseout: resetHighlightSeperate,
 				click: zoomToFeature
 			});
 		}
@@ -126,40 +135,17 @@ $(document).ready(function () {
 		}).addTo(map);
 
 
-		let legend = L.control({ position: "bottomright" });
-
-		legend.onAdd = function (map) {
-
-			let div = L.DomUtil.create("div", "info legend"),
-				grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-				labels = [],
-				from, to;
-
-			for (let i = 0; i < grades.length; i++) {
-				from = grades[i];
-				to = grades[i + 1];
-
-				labels.push(
-					"<i style=\"background:" + getColor(from + 1) + "\"></i> " +
-					from + (to ? "&ndash;" + to : "+"));
-			}
-
-			div.innerHTML = labels.join("<br>");
-			return div;
-		};
-
-		legend.addTo(map);
-
 	}
 
 	let userName;
 	let eMail;
 	let image;
+	
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
 		userName = $("#user-name").val().trim();
 		eMail = $("#email").val().trim();
-		image = $("#profile-pic").val().trim()
+		image = $("#profile-pic").val().trim();
 		console.log(userName);
 		$(".login-title").hide();
 		// $(".project-title").hide();
@@ -167,10 +153,10 @@ $(document).ready(function () {
 
 		$(".mappin").show();
 		addToMap();
-	})
+	});
 
 	function insertTodo(e) {
-		const aryCntry = []
+		const aryCntry = [];
 		for (let i = 0; i < countryArray.length; i++) {
 			aryCntry.push(countryArray[i].feature.id)
 		}
@@ -183,7 +169,12 @@ $(document).ready(function () {
 			future_location: aryCntry.toString()
 		};
 
-		$.post("/api/future_locations", ftrLoc);
+		$.post("/api/future_locations", ftrLoc).then(function (res) {
+			console.log(res);
+			window.location.replace("/public_map");
+			// window.location.replace(data.redirect); than window.location.href = data.redirect;
+		});
+		
 	}
 
 	$(".submit").on("click", function (e) {

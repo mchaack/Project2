@@ -13,16 +13,16 @@ const db = require("../models");
 module.exports = function (app) {
 	// GET route for getting all of the posts
 	app.get("/api/future_locations/", function (req, res) {
-		db.TravelTable.findAll({})
-			.then(function (TravelTable) {
-				res.json(TravelTable);
-				console.log(TravelTable);
+		db.traveltables.findAll({})
+			.then(function (traveltables) {
+				res.json(traveltables);
+				console.log(traveltables);
 			});
 	});
 
 	app.post("/api/future_locations", function (req, res) {
 		console.log(req.body);
-		db.TravelTable.create({
+		db.traveltables.create({
 			username: req.body.username,
 			email: req.body.email,
 			image: req.body.image,

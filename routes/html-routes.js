@@ -18,9 +18,9 @@ module.exports = function(app) {
 		res.sendFile(path.join(__dirname, "../public/user_map.html"));
 	});
 
-	app.get("/", function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/index.html"));
-	});
+// 	app.get("/", function(req, res) {
+// 		res.sendFile(path.join(__dirname, "../public/index.html"));
+// 	});
 
 	// blog route loads blog.html
 	app.get("/public_map", function(req, res) {
@@ -37,19 +37,19 @@ module.exports = function(app) {
 	// res.render("index");
 	// });
 
-	app.post("/", function (res, req) {
-		let username = req.body.username;
-		let password = req.body.password;
-		authenticate(req, username, password);
-		if (req.session && req.session.authenticated) {
-			res.render("Welcome", { users: data2.users });
-		} else {
-			res.redirect("/");
-		}
-	})
+// 	app.post("/", function (res, req) {
+// 		let username = req.body.username;
+// 		let password = req.body.password;
+// 		authenticate(req, username, password);
+// 		if (req.session && req.session.authenticated) {
+// 			res.render("Welcome", { users: data2.users });
+// 		} else {
+// 			res.redirect("/");
+// 		}
+// 	})
 
-	app.listen(8080, function () {
-		console.log("Started Express Application!")
-	});
+	// app.listen(8080, function () {
+	// 	console.log("Started Express Application!")
+	// });
 };
 	
