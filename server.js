@@ -14,7 +14,7 @@ const passportSetup = require("./config/passport-setup");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const db = require("./models");
@@ -38,7 +38,7 @@ require("./routes/html-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({}).then(function () {
-	app.listen(port, function () {
+	app.listen(PORT, function () {
 		console.log("Server listening on: http://localhost:" + port);
 	});
 });
