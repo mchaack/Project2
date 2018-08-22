@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
 
 
 passport.deserializeUser((id, done) => {
-	db.TravelTable.findById(id).then(user => {
+	db.traveltables.findById(id).then(user => {
 		// console.log("********************* deserializing user", user);
 		done(null, user);
 	});
@@ -35,7 +35,7 @@ passport.use(
 		// console.log("email", email);
 		// console.log("image", image);
 		// console.log("profile", profile);
-		db.TravelTable.findOrCreate({
+		db.traveltables.findOrCreate({
 			where: {
 				username: username,
 				email: email,
@@ -45,7 +45,7 @@ passport.use(
 			const currentUsersDbId = currentUser[0].dataValues.id;
 			// console.log("currentUser", currentUser);
 			console.log("currentUsersDbId", currentUsersDbId);
-			// console.log(currentUser[0].TravelTable.dataValues.email);
+			// console.log(currentUser[0].traveltables.dataValues.email);
 			done(null, currentUser[0].dataValues);
 		});
 
