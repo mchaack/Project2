@@ -7,7 +7,7 @@ $(document).ready(function () {
 	// This function grabs todos from the database and updates the view
 	mapDisplay();
 	function mapDisplay() {
-
+		$("#user-list").hide();
 		let map = L.map("map").setView([10, 0], 2);
 
 		L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianJuZWxzMTAiLCJhIjoiY2prenI0cGpyMHg5bDN3bGU3bnd2eWZlMCJ9.3APPzTqzXC9bF-V3Up6z3w", {
@@ -20,18 +20,15 @@ $(document).ready(function () {
 
 
 
-
 		let countrySelect;
 		let testArray = [];
-		let styleArray = {
-			"type": "FeatureCollection", "features": testArray
-		};
 		let results = [];
 		let str;
 		let val;
 		let myMap = new Map();
 		let newAtt;
 		$.get("/api/future_locations", function (data) {
+
 			ftrLoc = data;
 			console.log(ftrLoc);
 
@@ -55,33 +52,25 @@ $(document).ready(function () {
 			}
 			storedCountries();
 			let cntplace;
-			let jsonString;
 			myMap.forEach(function (value, key) {
 				// let countryColor;
 				for (let j = 0; j < att.length; j++) {
 					if (key == att[j].id) {
 						// console.log(att[j].geometry)
 						att[j].properties.name = value;
-						// val = value;
 						cntplace = { "type": "feature", "id": att[j].id, "properties": att[j].properties, "geometry": att[j].geometry, "value": val };
-						// let countryColor = value;
 						testArray.push(cntplace);
-						// console.log(att[j]);
 					}
-					// newStyle(att[j]);
 				}
 				newAtt = att;
 				// console.log("key:" + key + " value: " + value);
-				// jsonString = JSON.stringify(styleArray)
 			});
-			console.log(newAtt)
+			// console.log(newAtt)
 
-			// console.log(jsonString)
-			// console.log(styleArray);
-			// console.log(val)
+
 		}).then(function (res) {
-			console.log(res)
-			console.log(newAtt)
+			console.log(res);
+			console.log(newAtt);
 			function newStyle(features) {
 				return {
 					weight: 2,
@@ -92,33 +81,32 @@ $(document).ready(function () {
 					fillColor: getColor(features.properties.name)
 				};
 			}
-
-
 			L.geoJson(att, { style: newStyle }).addTo(map);
-			// let info = L.control();
-			// let countryInfo;
 
-		
-		
 			function getCountries(e) {
-				$("#sidecol").empty();
+				$("#user-list").show();
+				$("#user-list").empty();
+
 				countrySelect = e.target.feature;
 				console.log(e.target.feature.id);
 				// console.log(data)
-				for (i = 0; i < ftrLoc.length; i++) {
+				for (let i = 0; i < ftrLoc.length; i++) {
 					str = ftrLoc[i].future_location;
 					if (str.includes(countrySelect.id)) {
 						console.log(countrySelect.id);
 						results.push(ftrLoc[i]);
 						let userBlock = $("<button>");
+						userBlock.attr("data",ftrLoc[i].id);
 						userBlock.addClass("people");
-						userBlock.html("<div class='user'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
+						userBlock.html("<div class='user w-100'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
 						// popup.setContent(userBlock)
-						$("#sidecol").append(userBlock);
+						$("#user-list").append(userBlock);
 
 					}
 				}
+		
 			}
+
 
 			function getColor(d) {
 				return d > 12 ? "#801026" :
@@ -134,8 +122,6 @@ $(document).ready(function () {
 
 			function onEachFeature(feature, layer) {
 				layer.on({
-					// mouseover: highlightFeature,
-					// mouseout: resetHighlight,
 					click: getCountries
 				});
 			}
@@ -144,8 +130,38 @@ $(document).ready(function () {
 				onEachFeature: onEachFeature
 			}).addTo(map);
 
-			
+
+			let legend = L.control({ position: "bottomright" });
+
+			legend.onAdd = function (map) {
+				let div = L.DomUtil.create("div", "legend");
+				let labels = ["Countries selected by more than 1 user"];
+				let grades = [0, 1, 2, 3, 4, 7, 9, 12];
+				div.innerHTML = "<div class='m-auto text-center'><b>Number of users that selected country</b>";
+				// loop through our density intervals and generate a label with a colored square for each interval
+				let numb = 0;
+				for (let i = 0; i < grades.length; i++) {
+					console.log(numb)
+					div.innerHTML += "<div class='legend-block m-3'><div id='legend-style-" + numb + "'></div><div class='legend-number'>" +
+						grades[i] + "</div></div>";
+					numb++;
+				}
+
+				return div;
+			};
+			legend.addTo(map)
+
+
 		})
+		$(".user-list").mouseover(function () {
+			console.log("mouseover")
+			map.scrollWheelZoom.disable();
+			// $("p").css("background-color", "yellow");
+		});
+		$("p").mouseout(function () {
+			// $("p").css("background-color", "lightgray");
+		});
+
 	}
 
 });
