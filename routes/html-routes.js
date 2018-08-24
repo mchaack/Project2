@@ -39,9 +39,9 @@ module.exports = function(app) {
 	
 	// Re-direct routes for user login (non-passport)
 
-	// app.get("/", function (req, res) {
-	// res.redirect("/login");
-	// });
+	app.get("/", function (req, res) {
+		res.redirect("/auth/login");
+	});
 
 	// app.get("/login", function (req, res) {
 	// res.render("index");
