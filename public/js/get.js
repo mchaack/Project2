@@ -2,8 +2,8 @@ $(document).ready(function () {
 	let ftrLoc;
 	// let str;
 	const att = world.features;
-	console.log(att);
 
+	console.log(att);
 	// This function grabs todos from the database and updates the view
 	mapDisplay();
 	function mapDisplay() {
@@ -96,7 +96,7 @@ $(document).ready(function () {
 						console.log(countrySelect.id);
 						results.push(ftrLoc[i]);
 						let userBlock = $("<button>");
-						userBlock.attr("data",ftrLoc[i].id);
+						userBlock.attr("data", ftrLoc[i].id);
 						userBlock.addClass("people");
 						userBlock.html("<div class='user w-100'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
 						// popup.setContent(userBlock)
@@ -104,7 +104,7 @@ $(document).ready(function () {
 
 					}
 				}
-		
+
 			}
 
 
