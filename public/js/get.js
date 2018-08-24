@@ -27,6 +27,7 @@ $(document).ready(function () {
 		let val;
 		let myMap = new Map();
 		let newAtt;
+
 		$.get("/api/future_locations", function (data) {
 
 			ftrLoc = data;
@@ -83,6 +84,7 @@ $(document).ready(function () {
 			}
 			L.geoJson(att, { style: newStyle }).addTo(map);
 
+			let userBlock = $("<button>");
 			function getCountries(e) {
 				$("#user-list").show();
 				$("#user-list").empty();
@@ -95,7 +97,6 @@ $(document).ready(function () {
 					if (str.includes(countrySelect.id)) {
 						console.log(countrySelect.id);
 						results.push(ftrLoc[i]);
-						let userBlock = $("<button>");
 						userBlock.attr("data", ftrLoc[i].id);
 						userBlock.addClass("people");
 						userBlock.html("<div class='user w-100'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
@@ -104,10 +105,13 @@ $(document).ready(function () {
 
 					}
 				}
-
 			}
 
 
+			$(".people").on("click", function () {
+				console.log("mouseover")
+				// $("p").css("background-color", "yellow");
+			});
 			function getColor(d) {
 				return d > 12 ? "#801026" :
 					d > 9 ? "#BD0026" :
@@ -131,11 +135,11 @@ $(document).ready(function () {
 			}).addTo(map);
 
 
-			let legend = L.control({ position: "bottomright" });
 
+			let legend = L.control({ position: "bottomright" });
 			legend.onAdd = function (map) {
 				let div = L.DomUtil.create("div", "legend");
-				let labels = ["Countries selected by more than 1 user"];
+				// let labels = ["Countries selected by more than 1 user"];
 				let grades = [0, 1, 2, 3, 4, 7, 9, 12];
 				div.innerHTML = "<div class='m-auto text-center'><b>Number of users that selected country</b>";
 				// loop through our density intervals and generate a label with a colored square for each interval
@@ -152,15 +156,9 @@ $(document).ready(function () {
 			legend.addTo(map)
 
 
+
 		})
-		$(".user-list").mouseover(function () {
-			console.log("mouseover")
-			map.scrollWheelZoom.disable();
-			// $("p").css("background-color", "yellow");
-		});
-		$("p").mouseout(function () {
-			// $("p").css("background-color", "lightgray");
-		});
+
 
 	}
 
