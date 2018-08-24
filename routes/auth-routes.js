@@ -8,7 +8,8 @@ router.get("/login", function(req, res) {
 
 
 router.get("/logout", (req, res) => {
-	res.send("logging out");
+	req.logout();
+	res.redirect("/");
 });
 
 //auth with google
@@ -18,7 +19,13 @@ router.get("/google", passport.authenticate("google",{
 
 //callback route for google to redirect to
 router.get("/google/redirect", passport.authenticate("google"), (req,res) =>{
-	res.send("You reached the callback URI!");
+	res.redirect("/user_map");
 });
+
+router.get("/auth/google/callback", 
+	passport.authenticate("google", { failureRedirect: "/login" }),
+	function(req, res) {
+		res.redirect("/");
+	});
 
 module.exports = router;

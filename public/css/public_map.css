@@ -1,0 +1,93 @@
+#legend-style-0 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #FFEDA0
+}
+#legend-style-1 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #FED976
+}
+#legend-style-2 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #FEB24C
+}
+#legend-style-3 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #FD8D3C
+}
+#legend-style-4 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #FC4E2A
+}
+#legend-style-5 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #E31A1C
+}
+#legend-style-6 {
+    float: left;
+
+    width: 20px;
+    height: 20px;
+    background: #BD0026
+}
+#legend-style-7 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #802026
+}
+.legend-block {
+    margin: auto;
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+.legend {
+    height: 100%;
+    width: 100%
+}
+.list {
+    width: 25%;
+    overflow: auto;
+}
+.people {
+    width: 100% !important;
+    height: 275px !important;
+}
+#user-list {
+    height: 100%;;
+    overflow: auto;
+}
+.profile-image {
+    width: 100%;
+   
+  }
+  @font-face { 
+    font-family: 'Charlotte'; 
+    src: url('../font/Charlotte\ Script/CharlotteScript');
+ } 
+.title {
+    color: whitesmoke !important;
+    text-shadow: 12px 1px 12px black;
+    font-family: 'CharlotteScript'!important;
+    font-size: 100px !important;
+}
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/adult-book-business-297755.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll
+}
