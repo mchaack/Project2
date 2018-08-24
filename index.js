@@ -25,7 +25,7 @@ app.use(session({
 	saveUninitialized: true
 }));
 app.use(function (req, res, next) {
-    var views = req.session.views;
+	var views = req.session.views;
 	if (!views) {
 		views = req.session.views = {};
 	}
@@ -46,11 +46,11 @@ function authenticate(req, username, password) {
 		if (username === user.username && password === user.password) {
 			req.session.authenticated = true;
 			console.log("User & Password Authenticated");
-        }
-        else {
+		}
+		else {
 			return false
 		}
 	});
 	console.log(req.session);
 	return req.session;
-    }   
+}   
