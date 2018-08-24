@@ -8,7 +8,8 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth-routes.js");
-const passportSetup = require("./config/passport-setup");
+// const passportSetup = 
+require("./config/passport-setup");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 
