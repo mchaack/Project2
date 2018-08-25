@@ -12,6 +12,9 @@ Group Project 2 requirements:
 7. Must meet good quality coding standards
 ## Features
 What makes your code stand out?
+
+[![Travel Buddies](https://drive.google.com/file/d/17vbj2CgaHuTXrqN92FPOjjBbKqpvwmgf/view)](https://drive.google.com/file/d/17vbj2CgaHuTXrqN92FPOjjBbKqpvwmgf/view "Travel Buddies")
+
 ## How To Use
 Step by step guide.
 ## Tech Framework Used/Installation
@@ -46,9 +49,9 @@ Link to API reference DOCS
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
 ## Credits
-https://github.com/jrnels10
-https://github.com/angellugo
-https://github.com/mchaack
+https://github.com/jrnels10<br>
+https://github.com/angellugo<br>
+https://github.com/mchaack<br>
 https://github.com/JShafer92
 ## License
 N/A
