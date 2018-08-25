@@ -120,19 +120,19 @@ $(document).ready(function () {
 				arrayStyle();
 			}
 			console.log(countryArray);
-			function onEachFeature(feature, layer) {
-				layer.on({
-					mouseover: highlightFeatureSeperate,
-					mouseout: resetHighlightSeperate,
-					click: zoomToFeature
-				});
-			}
-			geojson = L.geoJson(world, {
-				style: style,
-				onEachFeature: onEachFeature
-			}).addTo(map);
+		}
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureSeperate,
+				mouseout: resetHighlightSeperate,
+				click: zoomToFeature
+			});
 		}
 
+		geojson = L.geoJson(world, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
 
 
 	}
@@ -140,7 +140,7 @@ $(document).ready(function () {
 	let userName;
 	let eMail;
 	let image;
-
+	
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
 		userName = $("#user-name").val().trim();
@@ -174,7 +174,7 @@ $(document).ready(function () {
 			window.location.replace("/public_map");
 			// window.location.replace(data.redirect); than window.location.href = data.redirect;
 		});
-
+		
 	}
 
 	$(".submit").on("click", function (e) {
