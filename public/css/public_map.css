@@ -62,15 +62,19 @@
     overflow: auto;
 }
 .people {
-    width: 100% !important;
-    height: 275px !important;
+    width: 100%; 
 }
 #user-list {
-    height: 100%;;
+    height: 100%;
+    width: 100%;
     overflow: auto;
 }
 .profile-image {
-    width: 100%;
+    margin: auto;
+    height: auto; 
+    width: auto; 
+    max-width: 180px !important; 
+    max-height: 200px !important;
    
   }
   @font-face { 
@@ -80,7 +84,7 @@
 .title {
     color: whitesmoke !important;
     text-shadow: 12px 1px 12px black;
-    font-family: 'CharlotteScript'!important;
+    font-family: 'Charlotte';     
     font-size: 100px !important;
 }
 body {
