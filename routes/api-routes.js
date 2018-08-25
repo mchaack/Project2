@@ -5,80 +5,26 @@
 // Dependencies
 // =============================================================
 
+
 // Requiring our Todo model
 const db = require("../models");
 
-// Routes
 // =============================================================
 module.exports = function (app) {
 	// GET route for getting all of the posts
 	app.get("/api/future_locations/", function (req, res) {
-		db.TravelTable.findAll({})
-			.then(function (TravelTable) {
-				res.json(TravelTable);
-				console.log(TravelTable);
+		db.traveltables.findAll({})
+			.then(function (traveltables) {
+				res.json(traveltables);
 			});
 	});
 
-	// // Get route for returning posts of a specific category
-	// app.get("/api/posts/category/:category", function (req, res) {
-	// 	db.Post.findAll({
-	// 		where: {
-	// 			category: req.params.category
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
-
-	// // Get route for retrieving a single post
-	// app.get("/api/posts/:id", function (req, res) {
-	// 	db.Post.findOne({
-	// 		where: {
-	// 			id: req.params.id
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
-
-	// POST route for saving a new post
 	app.post("/api/future_locations", function (req, res) {
-		console.log(req.body);
-		db.TravelTable.create({
-			username: req.body.username,
-			email: req.body.email,
-			image: req.body.image,
-			future_location: req.body.future_location
-		}).then(function (dbPost) {
-			res.json(dbPost);
+		db.traveltables.findOne({
+			where: { id: req.user.dataValues.id }			
+		}).then( user => {
+			user.updateAttributes({future_location: req.body.future_location});
+			res.json(user);
 		});
 	});
-
-	// // DELETE route for deleting posts
-	// app.delete("/api/posts/:id", function (req, res) {
-	// 	db.Post.destroy({
-	// 		where: {
-	// 			id: req.params.id
-	// 		}
-	// 	})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		})
-	// });
-
-	// // PUT route for updating posts
-	// app.put("/api/posts", function (req, res) {
-	// 	db.Post.update(req.body,
-	// 		{
-	// 			where: {
-	// 				id: req.body.id
-	// 			}
-	// 		})
-	// 		.then(function (dbPost) {
-	// 			res.json(dbPost);
-	// 		});
-	// });
 };

@@ -25,12 +25,7 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
+
 
 /* Center the image and position the close button */
 .imgcontainer {
@@ -48,7 +43,7 @@ img.avatar {
     padding: 16px;
 }
 
-span.psw {
+span.eml, span.prfle {
     float: right;
     padding-top: 16px;
 }
@@ -117,4 +112,23 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+body {
+    height: 100vh !important;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/adult-book-business-297755.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll
+}
+@font-face { 
+    font-family: 'Charlotte'; 
+    src: url('../font/Charlotte\ Script/CharlotteScript');
+ } 
+.title {
+    color: whitesmoke !important;
+    text-shadow: 12px 1px 12px black;
+    font-family: 'CharlotteScript'!important;
+    font-size: 100px !important;
 }
