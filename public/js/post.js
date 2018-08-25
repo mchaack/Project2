@@ -30,8 +30,8 @@ $(document).ready(function () {
 
 		info.update = function (props) {
 			this._div.innerHTML = "<h4>Select countries that you would like to visit.</h4>" + (props ?
-				"<b>" + props.name + "</b><br />"
-				: "Hover over a country");
+				"<b id='hover-name'>" + props.name + "</b><br />"
+				: "");
 		};
 
 		info.addTo(map);
@@ -121,9 +121,9 @@ $(document).ready(function () {
 			}
 			console.log(countryArray);
 		}
-		
-		
-		
+
+
+
 		function onEachFeature(feature, layer) {
 			layer.on({
 				mouseover: highlightFeatureSeperate,
@@ -140,7 +140,7 @@ $(document).ready(function () {
 	let userName;
 	let eMail;
 	let image;
-		addToMap();
+	addToMap();
 
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
