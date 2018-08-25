@@ -15,7 +15,7 @@ $(document).ready(function () {
 			attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, " +
 				"<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, " +
 				"Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-			id: "mapbox.light"
+			id: "mapbox.dark"
 		}).addTo(map);
 
 
@@ -84,34 +84,35 @@ $(document).ready(function () {
 			}
 			L.geoJson(att, { style: newStyle }).addTo(map);
 
-			let userBlock = $("<button>");
 			function getCountries(e) {
 				$("#user-list").show();
 				$("#user-list").empty();
-
+				
 				countrySelect = e.target.feature;
 				console.log(e.target.feature.id);
 				// console.log(data)
 				for (let i = 0; i < ftrLoc.length; i++) {
+					let userBlock = $("<button>");
 					str = ftrLoc[i].future_location;
+					console.log(ftrLoc[i].username)
 					if (str.includes(countrySelect.id)) {
 						console.log(countrySelect.id);
 						results.push(ftrLoc[i]);
 						userBlock.attr("data", ftrLoc[i].id);
 						userBlock.addClass("people");
-						userBlock.html("<div class='user w-100'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + "><div class='name'>" + ftrLoc[i].email + "</div><a href='https://www.google.com/'><button>Click me</button></a>");
+						userBlock.html("<div class='user w-100'>" + ftrLoc[i].username + "</div><img class='profile-image' src=" + ftrLoc[i].image + ">");
 						// popup.setContent(userBlock)
 						$("#user-list").append(userBlock);
 
 					}
 				}
+				$(".people").on("click", function () {
+					console.log("mouseover")
+					// $("p").css("background-color", "yellow");
+				});
 			}
 
 
-			$(".people").on("click", function () {
-				console.log("mouseover")
-				// $("p").css("background-color", "yellow");
-			});
 			function getColor(d) {
 				return d > 12 ? "#801026" :
 					d > 9 ? "#BD0026" :
