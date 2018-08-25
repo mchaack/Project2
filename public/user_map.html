@@ -18,24 +18,32 @@
 
   <style>
     #map {
-      height: 500px;
+      height: 85%;
       border: 1px solid black;
+    }
+
+    button {
+      height: 10%;
     }
 
     .container-fluid {
       height: 100vh !important;
     }
 
-    /* #profile-pic {
-      width: 100%;
-      height: 20px;
-      border: 1px solid black;
-    } */
+    #hover-name {
+      float: right
+    }
+    .info {
+      float: right
+    }
   </style>
 </head>
 
 <body>
+  <button onclick="window.location.href='/auth/logout'" style="width:auto;">Logout</button>
+  
   <div class="container-fluid">
+<<<<<<< HEAD
     <div class="row h-100">
       <div class="col-8 login-title m-auto h-75">
 
@@ -78,25 +86,24 @@
                 <br>
                 <button class="create-submit" type="submit">Create</button>
 
+=======
+    <div class="col-12 h-100">
+      <div class="row h-25">
+        <div class="m-auto w-100 title text-center">Travel Buddies</div>
+      </div>
+      <div class="row h-75">
+>>>>>>> b9c75aac5b62190f2e4d08101d81c5aaabb33c6b
 
-              </div>
+        <div class="row page-body w-100 pb-3">
 
-            </form>
+          <div class="col-9 h-100 m-auto">
+            <div id="map"></div>
+            <button class="submit">submit</button>
           </div>
         </div>
-      </div>
-      <div class="col-10 map-title m-auto h-75">
 
-        <div class="mappin">
-
-          <div id="map"></div>
-          <div id="sidecol"></div>
-          <button class="submit">submit</button>
-        </div>
       </div>
     </div>
-
-  </div>
   </div>
   <script src="./js/countries.geo.js"></script>
   <script type="application/javascript" src="./js/post.js"></script>

@@ -117,4 +117,26 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+<<<<<<< HEAD
+=======
+}
+body {
+    height: 100vh !important;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/adult-book-business-297755.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll
+}
+@font-face { 
+    font-family: 'Charlotte'; 
+    src: url('../font/Charlotte\ Script/CharlotteScript');
+ } 
+.title {
+    color: whitesmoke !important;
+    text-shadow: 12px 1px 12px black;
+    font-family: 'CharlotteScript'!important;
+    font-size: 100px !important;
+>>>>>>> b9c75aac5b62190f2e4d08101d81c5aaabb33c6b
 }

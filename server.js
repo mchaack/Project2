@@ -8,13 +8,16 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth-routes.js");
-const passportSetup = require("./config/passport-setup");
+// const passportSetup = 
+require("./config/passport-setup");
+const passport = require("passport");
+const cookieSession = require("cookie-session");
 
 
 // Sets up the Express App
 // =============================================================
 const app = express();
-let port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const db = require("./models");
@@ -28,6 +31,17 @@ app.use(bodyParser.json());
 
 // Static directory
 app.use(express.static("public"));
+
+// Initialize cookie session
+app.use(cookieSession({
+	maxAge: 24 * 60 * 60 * 1000,
+	keys: [process.env.SESSION_COOKIE_KEY]
+}));
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Routes
 // =============================================================
