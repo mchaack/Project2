@@ -7,32 +7,32 @@ TODO: Write usage instructions
 ## Screenshots
 Of the database and stuff
 ## Tech Farmework Used
-body-parser
-[![npm version](https://badge.fury.io/js/body-parser.svg)](https://badge.fury.io/js/body-parser)
-dotenv
-[![npm version](https://badge.fury.io/js/dotenv.svg)](https://badge.fury.io/js/dotenv) 
-eslint 
-[![npm version](https://badge.fury.io/js/eslint.svg)](https://badge.fury.io/js/eslint)
-express 
-[![npm version](https://badge.fury.io/js/express.svg)](https://badge.fury.io/js/express)
-express-session
-[![npm version](https://badge.fury.io/js/express-session.svg)](https://badge.fury.io/js/express-session)
-fs 
-[![npm version](https://badge.fury.io/js/fs.svg)](https://badge.fury.io/js/fs)
-mustache 
-[![npm version](https://badge.fury.io/js/mustache.svg)](https://badge.fury.io/js/mustache)
-mustache-express 
-[![npm version](https://badge.fury.io/js/mustache-express.svg)](https://badge.fury.io/js/mustache-express)
-mysql 
-[![npm version](https://badge.fury.io/js/mysql.svg)](https://badge.fury.io/js/mysql)
-mysql2 
-[![npm version](https://badge.fury.io/js/mysql2.svg)](https://badge.fury.io/js/mysql2)
-passport 
-[![npm version](https://badge.fury.io/js/passport.svg)](https://badge.fury.io/js/passport)
-passport-google-oauth20 
-[![npm version](https://badge.fury.io/js/passport-google-oauth.svg)](https://badge.fury.io/js/passport-google-oauth)
-sequelize 
-[![npm version](https://badge.fury.io/js/sequelize.svg)](https://badge.fury.io/js/sequelize)
+>body-parser
+[![npm version](https://badge.fury.io/js/body-parser.svg)](https://badge.fury.io/js/body-parser)<br>
+>dotenv
+[![npm version](https://badge.fury.io/js/dotenv.svg)](https://badge.fury.io/js/dotenv)<br> 
+>eslint 
+[![npm version](https://badge.fury.io/js/eslint.svg)](https://badge.fury.io/js/eslint)<br>
+>express 
+[![npm version](https://badge.fury.io/js/express.svg)](https://badge.fury.io/js/express)<br>
+>express-session
+[![npm version](https://badge.fury.io/js/express-session.svg)](https://badge.fury.io/js/express-session)<br>
+>fs 
+[![npm version](https://badge.fury.io/js/fs.svg)](https://badge.fury.io/js/fs)<br>
+>mustache 
+[![npm version](https://badge.fury.io/js/mustache.svg)](https://badge.fury.io/js/mustache)<br>
+>mustache-express 
+[![npm version](https://badge.fury.io/js/mustache-express.svg)](https://badge.fury.io/js/mustache-express)<br>
+>mysql 
+[![npm version](https://badge.fury.io/js/mysql.svg)](https://badge.fury.io/js/mysql)<br>
+>mysql2 
+[![npm version](https://badge.fury.io/js/mysql2.svg)](https://badge.fury.io/js/mysql2)<br>
+>passport 
+[![npm version](https://badge.fury.io/js/passport.svg)](https://badge.fury.io/js/passport)<br>
+>passport-google-oauth20 
+[![npm version](https://badge.fury.io/js/passport-google-oauth.svg)](https://badge.fury.io/js/passport-google-oauth)<br>
+>sequelize 
+[![npm version](https://badge.fury.io/js/sequelize.svg)](https://badge.fury.io/js/sequelize)<br>
 ## Features
 What makes your code stand out?
 ## Installation
