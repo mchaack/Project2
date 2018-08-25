@@ -117,8 +117,6 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
-<<<<<<< HEAD
-=======
 }
 body {
     height: 100vh !important;
@@ -138,5 +136,4 @@ body {
     text-shadow: 12px 1px 12px black;
     font-family: 'CharlotteScript'!important;
     font-size: 100px !important;
->>>>>>> b9c75aac5b62190f2e4d08101d81c5aaabb33c6b
 }

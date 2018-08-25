@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js"></script>
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -13,51 +13,43 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script> -->
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <link rel="stylesheet" href="../assests/scss/input.css">
 
   <style>
     #map {
-      height: 85%;
+      height: 500px;
       border: 1px solid black;
-    }
-
-    button {
-      height: 10%;
     }
 
     .container-fluid {
       height: 100vh !important;
     }
 
-    #hover-name {
-      float: right
-    }
-    .info {
-      float: right
+    #profile-pic {
+      width: 100%;
+      height: 20px;
+      border: 1px solid black;
     }
   </style>
 </head>
 
 <body>
-  <button onclick="window.location.href='/auth/logout'" style="width:auto;">Logout</button>
-  
-  <div class="container-fluid">
-<<<<<<< HEAD
-    <div class="row h-100">
-      <div class="col-8 login-title m-auto h-75">
+  <div class="">
+    <div class="">
+      <div class="">
 
-        <div class="row project-title w-100 text-center m-auto h-75">
-          <div class="w-100 title">Travel Buddies</div>
+        <div class="">
+          <div class="">Travel Buddies</div>
         </div>
-        <div class="row login-div">
-          <button class=" w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
+        <div class="">
+          <button class="" id='login-button' onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">Login</button>
 
-          <button class="w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
+          <button class="" id='login-button' onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">Create account</button>
           <div id="id01" class="modal">
-            <form class="w-50 modal-content animate">
+            <form class="">
               <div class="imgcontainer">
               </div>
 
@@ -86,28 +78,29 @@
                 <br>
                 <button class="create-submit" type="submit">Create</button>
 
-=======
-    <div class="col-12 h-100">
-      <div class="row h-25">
-        <div class="m-auto w-100 title text-center">Travel Buddies</div>
-      </div>
-      <div class="row h-75">
->>>>>>> b9c75aac5b62190f2e4d08101d81c5aaabb33c6b
 
-        <div class="row page-body w-100 pb-3">
+              </div>
 
-          <div class="col-9 h-100 m-auto">
-            <div id="map"></div>
-            <button class="submit">submit</button>
+            </form>
           </div>
         </div>
+      </div>
+      <div class="">
 
+        <div class="mappin">
+
+          <div id="map"></div>
+          <div id="sidecol"></div>
+          <button class="submit">submit</button>
+        </div>
       </div>
     </div>
+
+  </div>
   </div>
   <script src="./js/countries.geo.js"></script>
   <script type="application/javascript" src="./js/post.js"></script>
-  <!-- <script type="application/javascript" src="./js/get.js"></script> -->
+  <script type="application/javascript" src="./js/get.js"></script>
 
 </body>
 
