@@ -13,8 +13,7 @@ Group Project 2 requirements:
 ## Features
 What makes your code stand out?
 
-![Travel Buddies Demo](C:\Users\megha\OneDrive\Pictures\Saved Pictures\travel_buddies.webm - Google Drive)
-Format: ![Alt Text](url)
+
 [![Travel Buddies](https://drive.google.com/file/d/17vbj2CgaHuTXrqN92FPOjjBbKqpvwmgf/view)](https://drive.google.com/file/d/17vbj2CgaHuTXrqN92FPOjjBbKqpvwmgf/view "Travel Buddies")
 
 ## How To Use
