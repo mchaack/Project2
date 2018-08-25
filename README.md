@@ -14,8 +14,6 @@ Group Project 2 requirements:
 What makes your code stand out?
 ## How To Use
 Step by step guide.
-## Build Status
-TODO: Write usage instructions
 ## Tech Framework Used/Installation
 >body-parser
 [![npm version](https://badge.fury.io/js/body-parser.svg)](https://badge.fury.io/js/body-parser)<br>
@@ -41,8 +39,6 @@ TODO: Write usage instructions
 [![npm version](https://badge.fury.io/js/sequelize.svg)](https://badge.fury.io/js/sequelize)<br>
 ## API References
 Link to API reference DOCS
-## Screenshots
-Of the database and stuff
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -50,8 +46,9 @@ Of the database and stuff
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
 ## Credits
-https://github.com/jrnels10<br>
-https://github.com/angellugo<br>
+https://github.com/jrnels10
+https://github.com/angellugo
 https://github.com/mchaack
+https://github.com/JShafer92
 ## License
 N/A
