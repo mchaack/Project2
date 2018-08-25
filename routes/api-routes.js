@@ -16,23 +16,15 @@ module.exports = function (app) {
 		db.traveltables.findAll({})
 			.then(function (traveltables) {
 				res.json(traveltables);
-				console.log(traveltables);
 			});
 	});
 
 	app.post("/api/future_locations", function (req, res) {
-		console.log(req.body);
-		db.traveltables.create({
-			username: req.body.username,
-			email: req.body.email,
-			image: req.body.image,
-			future_location: req.body.future_location
-		}).then(function (dbPost) {
-			res.json(dbPost);
-			// res.redirect("/user_map?" + "username=" + dbPost.username);
+		db.traveltables.findOne({
+			where: { id: req.user.dataValues.id }			
+		}).then( user => {
+			user.updateAttributes({future_location: req.body.future_location});
+			res.json(user);
 		});
 	});
-	
-
-
 };

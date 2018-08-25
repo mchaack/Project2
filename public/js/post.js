@@ -1,13 +1,10 @@
 $(document).ready(function () {
-	$(".mappin").hide();
 
 	let att = world;
 	console.log(att);
 	let countryArray = [];
 
 	function addToMap() {
-		$(".mappin").show();
-
 		let map = L.map("map").setView([0, 0], 2);
 
 		L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
@@ -49,23 +46,23 @@ $(document).ready(function () {
 		L.geoJson(world, { style: style }).addTo(map);
 		let geojson;
 
-		function highlightFeature(e) {
-			let layer = e.target;
+		// function highlightFeature(e) {
+		// 	let layer = e.target;
 
-			layer.setStyle({
-				weight: 5,
-				color: "#677",
-				dashArray: "",
-				fillOpacity: 0.7
-			});
+		// 	layer.setStyle({
+		// 		weight: 5,
+		// 		color: "#677",
+		// 		dashArray: "",
+		// 		fillOpacity: 0.7
+		// 	});
 
-			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-				layer.bringToFront();
-			}
+		// 	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		// 		layer.bringToFront();
+		// 	}
 
-			info.update(layer.feature.properties);
-		}
-		function highlightFeatureSeperate(e) {
+		// 	info.update(layer.feature.properties);
+		// }
+		function highlightFeatureSeparate(e) {
 			let layer = e.target;
 
 			layer.setStyle({
@@ -86,7 +83,7 @@ $(document).ready(function () {
 			geojson.resetStyle(e.target);
 			info.update();
 		}
-		function resetHighlightSeperate(e) {
+		function resetHighlightSeparate(e) {
 			geojson.resetStyle(e.target);
 			info.update();
 		}
@@ -102,11 +99,10 @@ $(document).ready(function () {
 
 
 		function zoomToFeature(e) {
-			// map.fitBounds(e.target.getBounds());
 			console.log(e.target.feature.properties.name);
 			let countryBoolean = false;
 			for (let i = 0; i < countryArray.length; i++) {
-				console.log(countryArray[i].feature.properties.name)
+				console.log(countryArray[i].feature.properties.name);
 				if (countryArray[i] == e.target) {
 					countryBoolean = true;
 					console.log(e.target.feature.properties.name + " already included in list");
@@ -123,8 +119,8 @@ $(document).ready(function () {
 		}
 		function onEachFeature(feature, layer) {
 			layer.on({
-				mouseover: highlightFeatureSeperate,
-				mouseout: resetHighlightSeperate,
+				mouseover: highlightFeatureSeparate,
+				mouseout: resetHighlightSeparate,
 				click: zoomToFeature
 			});
 		}
@@ -140,7 +136,8 @@ $(document).ready(function () {
 	let userName;
 	let eMail;
 	let image;
-	
+	addToMap();
+
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
 		userName = $("#user-name").val().trim();
@@ -148,31 +145,26 @@ $(document).ready(function () {
 		image = $("#profile-pic").val().trim();
 		console.log(userName);
 		$(".login-title").hide();
-		// $(".project-title").hide();
-
-
-		$(".mappin").show();
 		addToMap();
 	});
 
 	function insertTodo(e) {
-		const aryCntry = [];
+		const countries = [];
 		for (let i = 0; i < countryArray.length; i++) {
-			aryCntry.push(countryArray[i].feature.id)
+			countries.push(countryArray[i].feature.id);
 		}
-		aryCntry.toString;
-		console.log(aryCntry.toString());
+		countries.toString;
+		console.log(countries.toString());
 		const ftrLoc = {
 			username: userName,
 			email: eMail,
 			image: image,
-			future_location: aryCntry.toString()
+			future_location: countries.toString()
 		};
 
 		$.post("/api/future_locations", ftrLoc).then(function (res) {
 			console.log(res);
 			window.location.replace("/public_map");
-			// window.location.replace(data.redirect); than window.location.href = data.redirect;
 		});
 		
 	}
@@ -180,6 +172,5 @@ $(document).ready(function () {
 	$(".submit").on("click", function (e) {
 		insertTodo(e);
 	});
-	// This function inserts a new todo into our database and then updates the view
 
 });
