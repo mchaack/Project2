@@ -114,6 +114,7 @@ span.eml, span.prfle {
     }
 }
 body {
+    height: 100vh !important;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/adult-book-business-297755.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;

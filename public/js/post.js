@@ -1,10 +1,13 @@
 $(document).ready(function () {
+	// $(".mappin").hide();
 
 	let att = world;
 	console.log(att);
 	let countryArray = [];
 
 	function addToMap() {
+		// $(".mappin").show();
+
 		let map = L.map("map").setView([0, 0], 2);
 
 		L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
@@ -27,8 +30,8 @@ $(document).ready(function () {
 
 		info.update = function (props) {
 			this._div.innerHTML = "<h4>Select countries that you would like to visit.</h4>" + (props ?
-				"<b>" + props.name + "</b><br />"
-				: "Hover over a country");
+				"<b id='hover-name'>" + props.name + "</b><br />"
+				: "");
 		};
 
 		info.addTo(map);
@@ -46,23 +49,23 @@ $(document).ready(function () {
 		L.geoJson(world, { style: style }).addTo(map);
 		let geojson;
 
-		// function highlightFeature(e) {
-		// 	let layer = e.target;
+		function highlightFeature(e) {
+			let layer = e.target;
 
-		// 	layer.setStyle({
-		// 		weight: 5,
-		// 		color: "#677",
-		// 		dashArray: "",
-		// 		fillOpacity: 0.7
-		// 	});
+			layer.setStyle({
+				weight: 5,
+				color: "#677",
+				dashArray: "",
+				fillOpacity: 0.7
+			});
 
-		// 	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-		// 		layer.bringToFront();
-		// 	}
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
 
-		// 	info.update(layer.feature.properties);
-		// }
-		function highlightFeatureSeparate(e) {
+			info.update(layer.feature.properties);
+		}
+		function highlightFeatureSeperate(e) {
 			let layer = e.target;
 
 			layer.setStyle({
@@ -83,7 +86,7 @@ $(document).ready(function () {
 			geojson.resetStyle(e.target);
 			info.update();
 		}
-		function resetHighlightSeparate(e) {
+		function resetHighlightSeperate(e) {
 			geojson.resetStyle(e.target);
 			info.update();
 		}
@@ -99,10 +102,11 @@ $(document).ready(function () {
 
 
 		function zoomToFeature(e) {
+			// map.fitBounds(e.target.getBounds());
 			console.log(e.target.feature.properties.name);
 			let countryBoolean = false;
 			for (let i = 0; i < countryArray.length; i++) {
-				console.log(countryArray[i].feature.properties.name);
+				console.log(countryArray[i].feature.properties.name)
 				if (countryArray[i] == e.target) {
 					countryBoolean = true;
 					console.log(e.target.feature.properties.name + " already included in list");
@@ -117,20 +121,20 @@ $(document).ready(function () {
 			}
 			console.log(countryArray);
 		}
+
+
+
 		function onEachFeature(feature, layer) {
 			layer.on({
-				mouseover: highlightFeatureSeparate,
-				mouseout: resetHighlightSeparate,
+				mouseover: highlightFeatureSeperate,
+				mouseout: resetHighlightSeperate,
 				click: zoomToFeature
 			});
 		}
-
 		geojson = L.geoJson(world, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-
-
 	}
 
 	let userName;
@@ -145,32 +149,37 @@ $(document).ready(function () {
 		image = $("#profile-pic").val().trim();
 		console.log(userName);
 		$(".login-title").hide();
-		addToMap();
+		// $(".project-title").hide();
+
+
+		$(".mappin").show();
 	});
 
 	function insertTodo(e) {
-		const countries = [];
+		const aryCntry = [];
 		for (let i = 0; i < countryArray.length; i++) {
-			countries.push(countryArray[i].feature.id);
+			aryCntry.push(countryArray[i].feature.id)
 		}
-		countries.toString;
-		console.log(countries.toString());
+		aryCntry.toString;
+		console.log(aryCntry.toString());
 		const ftrLoc = {
 			username: userName,
 			email: eMail,
 			image: image,
-			future_location: countries.toString()
+			future_location: aryCntry.toString()
 		};
 
 		$.post("/api/future_locations", ftrLoc).then(function (res) {
 			console.log(res);
 			window.location.replace("/public_map");
+			// window.location.replace(data.redirect); than window.location.href = data.redirect;
 		});
-		
+
 	}
 
 	$(".submit").on("click", function (e) {
 		insertTodo(e);
 	});
+	// This function inserts a new todo into our database and then updates the view
 
 });

@@ -53,24 +53,37 @@
     width: 20px;
     height: 20px;
 }
+.legend-number {
+    color: whitesmoke
+}
+.legend-text {
+    color: whitesmoke
+}
 .legend {
+    background-color: rgba(255,255,255, 0.1);
     height: 100%;
-    width: 100%
+    width: 100%;
+    /* color: whitesmoke;
+    opacity: .5 */
 }
 .list {
     width: 25%;
     overflow: auto;
 }
 .people {
-    width: 100% !important;
-    height: 275px !important;
+    width: 100%; 
 }
 #user-list {
-    height: 100%;;
+    height: 100%;
+    width: 100%;
     overflow: auto;
 }
 .profile-image {
-    width: 100%;
+    margin: auto;
+    height: auto; 
+    width: auto; 
+    max-width: 180px !important; 
+    max-height: 180px !important;
    
   }
   @font-face { 
@@ -80,7 +93,7 @@
 .title {
     color: whitesmoke !important;
     text-shadow: 12px 1px 12px black;
-    font-family: 'CharlotteScript'!important;
+    font-family: 'Charlotte';     
     font-size: 100px !important;
 }
 body {
@@ -91,3 +104,17 @@ body {
     background-size: cover;
     background-attachment: scroll
 }
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
