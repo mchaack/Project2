@@ -142,7 +142,7 @@ $(document).ready(function () {
 				let div = L.DomUtil.create("div", "legend");
 				// let labels = ["Countries selected by more than 1 user"];
 				let grades = [0, 1, 2, 3, 4, 7, 9, 12];
-				div.innerHTML = "<div class='m-auto text-center'><b>Number of users that selected country</b>";
+				div.innerHTML = "<div class='m-auto text-center legend-text'><b>Number of users that selected country</b>";
 				// loop through our density intervals and generate a label with a colored square for each interval
 				let numb = 0;
 				for (let i = 0; i < grades.length; i++) {
