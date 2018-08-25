@@ -1,10 +1,16 @@
-USE project_two;
+/*
+-- Query: SELECT * FROM project_two.traveltables
+LIMIT 0, 1000
 
-INSERT INTO users (username, email)
-VALUES ("qwerty", "qwerty@awerty.com");
-
-INSERT INTO users (username, email)
-VALUES ("Don", "jr@trump.com");
-
-INSERT INTO users (username, email)
-VALUES ("pancho", "pancho@ice.com");
+-- Date: 2018-08-25 09:42
+*/
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (1,'Michelle','michelle@michelle.com','https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350','BRA,COL,ARG,USA','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (2,'Jacob','jrnels10@gmail.com','https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/10402965_10153670228184125_4801898598549483650_n.jpg?_nc_cat=0&oh=b32e657b8922b359227e8e76be22afdc&oe=5C39CC6E','BRA,ARG,MEX,AUS,CHN','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (3,'Craig','craig@craig.com','https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350','FRA,ESP,IND,KAZ,AFG,MNG,CHN,RUS,AUS,CAN','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (4,'Coco','coco@woof.com','https://scontent-lax3-1.xx.fbcdn.net/v/t1.15752-9/40045422_2123909161190900_2984320874158489600_n.jpg?_nc_cat=0&oh=00e0c0291bb7b68a966204b0fc51fd8a&oe=5BF95C7E','MEX,COL,PER,BRA,SUR,DZA,NER,BWA,TZA,AGO,AUS,IND,PAK,CHN','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (5,'Rachel','rachel@rachel.com','https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350','PER,BRA,BWA,ZAF,AUS,CHN,JPN,FRA,UKR,TUR,SAU,USA,MEX','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (6,'Craig','craig@craig.com','https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350','BRA,USA,MEX,AUS,CHN','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (44,'Angel Lugo','theangellugo@gmail.com','https://lh5.googleusercontent.com/-IW-Q85HuvF0/AAAAAAAAAAI/AAAAAAAAnZM/Tvabw-MO9s8/photo.jpg','RUS,CHN,MNG,KAZ,BLR,FIN,NOR,BRA','2018-08-24 04:10:55','2018-08-24 18:04:38');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (47,'Jacob Nelson','jrnels10@gmail.com','https://lh4.googleusercontent.com/-6gNsecsEDVI/AAAAAAAAAAI/AAAAAAAAAEE/j40xD7fQsnM/photo.jpg','RUS,CHN,MNG,KAZ,BLR,FIN,NOR,BRA','2018-08-24 04:30:04','2018-08-24 04:30:30');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (48,'Meg Haack','meggie.haack@gmail.com','https://lh6.googleusercontent.com/-5mLtkqtuLTw/AAAAAAAAAAI/AAAAAAAAUd0/NWBdHqZfLjw/photo.jpg','AUS,HTI,CUB,ESP,FRA,GBR,ITA,BRA','2018-08-24 04:36:40','2018-08-24 04:37:09');
+INSERT INTO `traveltables` (`id`,`username`,`email`,`image`,`future_location`,`createdAt`,`updatedAt`) VALUES (49,'Britney Spars','lavendersaguaro@gmail.com','https://lh4.googleusercontent.com/-q5aExnYHnkU/AAAAAAAAAAI/AAAAAAAAAAc/WMvli0qMt_0/photo.jpg','ESP,ITA,FRA,CAN,AUS,RUS','2018-08-24 04:41:59','2018-08-24 16:59:18');
