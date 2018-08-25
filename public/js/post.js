@@ -1,12 +1,12 @@
 $(document).ready(function () {
-	$(".mappin").hide();
+	// $(".mappin").hide();
 
 	let att = world;
 	console.log(att);
 	let countryArray = [];
 
 	function addToMap() {
-		$(".mappin").show();
+		// $(".mappin").show();
 
 		let map = L.map("map").setView([0, 0], 2);
 
@@ -30,8 +30,8 @@ $(document).ready(function () {
 
 		info.update = function (props) {
 			this._div.innerHTML = "<h4>Select countries that you would like to visit.</h4>" + (props ?
-				"<b>" + props.name + "</b><br />"
-				: "Hover over a country");
+				"<b id='hover-name'>" + props.name + "</b><br />"
+				: "");
 		};
 
 		info.addTo(map);
@@ -121,6 +121,9 @@ $(document).ready(function () {
 			}
 			console.log(countryArray);
 		}
+
+
+
 		function onEachFeature(feature, layer) {
 			layer.on({
 				mouseover: highlightFeatureSeperate,
@@ -128,19 +131,17 @@ $(document).ready(function () {
 				click: zoomToFeature
 			});
 		}
-
 		geojson = L.geoJson(world, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-
-
 	}
 
 	let userName;
 	let eMail;
 	let image;
-	
+	addToMap();
+
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
 		userName = $("#user-name").val().trim();
@@ -152,7 +153,6 @@ $(document).ready(function () {
 
 
 		$(".mappin").show();
-		addToMap();
 	});
 
 	function insertTodo(e) {
@@ -174,7 +174,7 @@ $(document).ready(function () {
 			window.location.replace("/public_map");
 			// window.location.replace(data.redirect); than window.location.href = data.redirect;
 		});
-		
+
 	}
 
 	$(".submit").on("click", function (e) {

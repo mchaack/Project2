@@ -53,9 +53,18 @@
     width: 20px;
     height: 20px;
 }
+.legend-number {
+    color: whitesmoke
+}
+.legend-text {
+    color: whitesmoke
+}
 .legend {
+    background-color: rgba(255,255,255, 0.1);
     height: 100%;
-    width: 100%
+    width: 100%;
+    /* color: whitesmoke;
+    opacity: .5 */
 }
 .list {
     width: 25%;
@@ -74,7 +83,7 @@
     height: auto; 
     width: auto; 
     max-width: 180px !important; 
-    max-height: 200px !important;
+    max-height: 180px !important;
    
   }
   @font-face { 

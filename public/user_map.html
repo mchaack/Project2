@@ -17,83 +17,45 @@
 
   <style>
     #map {
-      height: 500px;
+      height: 85%;
       border: 1px solid black;
+    }
+
+    button {
+      height: 10%;
     }
 
     .container-fluid {
       height: 100vh !important;
     }
 
-    /* #profile-pic {
-      width: 100%;
-      height: 20px;
-      border: 1px solid black;
-    } */
+    #hover-name {
+      float: right
+    }
+    .info {
+      float: right
+    }
   </style>
 </head>
 
 <body>
   <div class="container-fluid">
-    <div class="row h-100">
-      <div class="col-8 login-title m-auto h-75">
+    <div class="col-12 h-100">
+      <div class="row h-25">
+        <div class="m-auto w-100 title text-center">Travel Buddies</div>
+      </div>
+      <div class="row h-75">
 
-        <div class="row project-title w-100 text-center m-auto h-75">
-          <div class="w-100 title">Travel Buddies</div>
+        <div class="row page-body w-100 pb-3">
 
-        </div>
-        <div class="row create-div">
-          <button class="w-25 m-auto text-center" id='login-button' onclick="document.getElementById('id01').style.display='block'"
-            style="width:auto;">Create account</button>
-          <div id="id01" class="modal">
-            <form class="w-50 modal-content animate">
-              <div class="imgcontainer">
-              </div>
-
-              <div class="container">
-                <div class="name-user">
-
-                  <label for="uname">
-                    <b>Username</b>
-                  </label>
-                  <input id="user-name" type="text" placeholder="Enter Username" name="uname" required>
-                </div>
-                <div class="email-user">
-
-                  <label for="eml">
-                    <b>Email</b>
-                  </label>
-                  <input id="email" type="text" placeholder="Enter email" name="eml" required>
-                </div>
-                <div class="picture-user">
-
-                  <label>
-                    <b>Profile picture</b>
-                  </label>
-                  <input id="profile-pic" type="text" placeholder="Enter image address" name="prfle">
-                </div>
-                <br>
-                <button class="create-submit" type="submit">Create</button>
-
-
-              </div>
-
-            </form>
+          <div class="col-9 h-100 m-auto">
+            <div id="map"></div>
+            <button class="submit">submit</button>
           </div>
         </div>
-      </div>
-      <div class="col-10 map-title m-auto h-75">
 
-        <div class="mappin">
-
-          <div id="map"></div>
-          <div id="sidecol"></div>
-          <button class="submit">submit</button>
-        </div>
       </div>
     </div>
-
-  </div>
   </div>
   <script src="./js/countries.geo.js"></script>
   <script type="application/javascript" src="./js/post.js"></script>

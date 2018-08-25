@@ -16,48 +16,15 @@ module.exports = function (app) {
 		db.traveltables.findAll({})
 			.then(function (traveltables) {
 				res.json(traveltables);
-				console.log(traveltables);
 			});
 	});
 
 	app.post("/api/future_locations", function (req, res) {
-		console.log(req.body);
-		db.traveltables.create({
-			username: req.body.username,
-			email: req.body.email,
-			image: req.body.image,
-			future_location: req.body.future_location
-		}).then(function (dbPost) {
-			res.json(dbPost);
-			// res.redirect("/user_map?" + "username=" + dbPost.username);
+		db.traveltables.findOne({
+			where: { id: req.user.dataValues.id }			
+		}).then( user => {
+			user.updateAttributes({future_location: req.body.future_location});
+			res.json(user);
 		});
 	});
-	// app.put("/api/future_locations", function (req, res) {
-	// 	console.log(req.body);
-	// 	db.TravelTable.update({
-	// 		image: req.body.image,
-	// 		future_location: req.body.future_location
-	// 	}, {
-	// 			where: {
-	// 				id: req.body.username
-	// 			}
-	// 		}).then(function (dbTodo) {
-	// 			res.json(dbTodo);
-	// 		});
-	// });
-
-
-	// db.TravelTable.findOne({ username: req.body.username }).then(function(){
-	// 	db.TravelTable.update({
-
-	// 	})
-	// })({
-	// 	username: req.body.username,
-	// 	email: req.body.email,
-	// 	}).then(function (dbPost) {
-	// 		res.json(dbPost);
-	// 	});
-	// });
-
-
 };
