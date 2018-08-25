@@ -34,7 +34,7 @@ $(document).ready(function () {
 			console.log(ftrLoc);
 
 			function storedCountries(e) {
-				for (i = 0; i < ftrLoc.length; i++) {
+				for (let i = 0; i < ftrLoc.length; i++) {
 					str = ftrLoc[i].future_location;
 					for (let j = 0; j < att.length; j++) {
 						if (str.includes(att[j].id)) {
