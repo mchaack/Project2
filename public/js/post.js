@@ -1,12 +1,12 @@
 $(document).ready(function () {
-	$(".mappin").hide();
+	// $(".mappin").hide();
 
 	let att = world;
 	console.log(att);
 	let countryArray = [];
 
 	function addToMap() {
-		$(".mappin").show();
+		// $(".mappin").show();
 
 		let map = L.map("map").setView([0, 0], 2);
 
@@ -120,26 +120,27 @@ $(document).ready(function () {
 				arrayStyle();
 			}
 			console.log(countryArray);
-			function onEachFeature(feature, layer) {
-				layer.on({
-					mouseover: highlightFeatureSeperate,
-					mouseout: resetHighlightSeperate,
-					click: zoomToFeature
-				});
-			}
-			geojson = L.geoJson(world, {
-				style: style,
-				onEachFeature: onEachFeature
-			}).addTo(map);
 		}
-
-
-
+		
+		
+		
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureSeperate,
+				mouseout: resetHighlightSeperate,
+				click: zoomToFeature
+			});
+		}
+		geojson = L.geoJson(world, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
 	}
 
 	let userName;
 	let eMail;
 	let image;
+		addToMap();
 
 	$(".create-submit").on("click", function () {
 		event.preventDefault();
@@ -152,7 +153,6 @@ $(document).ready(function () {
 
 
 		$(".mappin").show();
-		addToMap();
 	});
 
 	function insertTodo(e) {
