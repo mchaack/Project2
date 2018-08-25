@@ -7,7 +7,7 @@ TODO: Write usage instructions
 ## Screenshots
 Of the database and stuff
 ## Tech Farmework Used
-<dt>body-parser</dt>
+body-parser
 [![npm version](https://badge.fury.io/js/body-parser.svg)](https://badge.fury.io/js/body-parser)
 dotenv
 [![npm version](https://badge.fury.io/js/dotenv.svg)](https://badge.fury.io/js/dotenv) 
