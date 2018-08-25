@@ -1,47 +1,14 @@
-nav {
-  /* Change the link color to #111 (black) on hover */
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-nav button {
-  background-color: #333;
+button {
+  background-color: #111111;
   color: white;
-  padding: 14px 14px;
+  padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
-nav li button {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 14px;
-  text-decoration: none;
-  float: right;
-}
-
-nav li button:hover {
-  background-color: gray;
-}
-
-nav .site-brand {
-  float: left;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
+.container input[type=text], .container input[type=email], .container input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -51,18 +18,28 @@ input[type=text], input[type=password] {
           box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-/* button:hover {
-    opacity: 0.8;
-} */
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
 }
 
-/* Center the image and position the close button */
 .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
@@ -83,30 +60,6 @@ span.psw {
   padding-top: 16px;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 2;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto;
@@ -116,7 +69,6 @@ span.psw {
   /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button (x) */
 .close {
   position: absolute;
   right: 25px;
@@ -132,140 +84,10 @@ span.psw {
   cursor: pointer;
 }
 
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s;
-}
-
-@-webkit-keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
-
 #map {
   position: center;
   width: 100%;
   height: 60%;
   z-index: 0;
-}
-
-body, html {
-  height: 100%;
-}
-
-#container nav nav {
-  /* Change the link color to #111 (black) on hover */
-}
-
-#container nav nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-#container nav nav button {
-  background-color: #333;
-  color: white;
-  padding: 14px 14px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-}
-
-#container nav nav li button {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 14px;
-  text-decoration: none;
-  float: right;
-}
-
-#container nav nav li button:hover {
-  background-color: gray;
-}
-
-#container nav nav .site-brand {
-  float: left;
-}
-
-body {
-  font-family: "Arial, Helvetica, sans-serif";
-  margin: 0;
-}
-
-body div #bg {
-  -webkit-clip-path: polygon(100% 0, 100% 54%, 50% 100%, 0 100%, 0 0);
-          clip-path: polygon(100% 0, 100% 54%, 50% 100%, 0 100%, 0 0);
-  background: url("../../images/adult-book-business-297755.jpg");
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-}
-
-body h1 a {
-  color: #fff;
-  text-decoration: none;
-  padding: 15px;
-  display: inline;
-  -webkit-text-decoration: uppercase;
-          text-decoration: uppercase;
-}
-
-body h1 {
-  position: left absolute;
-  width: 25%;
-}
-
-#map #map {
-  position: center;
-  width: 100%;
-  height: 60%;
-  z-index: 0;
-}
-
-header {
-  overflow: hidden;
-  background-color: #11111100;
-  padding: 20px 10px;
-}
-
-header .banner {
-  vertical-align: center;
-}
-
-#chatbox {
-  background-color: '';
-  text-align: left;
 }
 /*# sourceMappingURL=input.css.map */
